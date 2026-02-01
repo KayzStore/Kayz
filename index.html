@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisata Alam Indonesia - Jelajahi Keindahan Nusantara</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c2c 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo::before {
+            content: "🌿";
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #b8e994;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a7c2c" width="1200" height="600"/><path fill="%233d6625" d="M0 400 Q300 350 600 400 T1200 400 V600 H0 Z"/><circle fill="%23f9ca24" cx="150" cy="100" r="50"/><path fill="%232d5016" d="M0 500 Q200 480 400 500 T800 500 T1200 500 V600 H0 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #4a7c2c;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: #2d5016;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5016;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #4a7c2c;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Destination Cards */
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .destination-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #4a7c2c 0%, #2d5016 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card-content .location {
+            color: #666;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-content .location::before {
+            content: "📍";
+            margin-right: 0.5rem;
+        }
+
+        .card-content p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .card-content .rating {
+            color: #f9ca24;
+            font-size: 1.2rem;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #4a7c2c 0%, #2d5016 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+
+        .about-text h3 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #b8e994;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Wisata Alam</div>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#destinasi">Destinasi</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Jelajahi Keindahan Alam Indonesia</h1>
+            <p>Temukan destinasi wisata alam terbaik di Nusantara</p>
+            <a href="#destinasi" class="btn">Mulai Jelajah</a>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinasi">
+        <h2 class="section-title">Destinasi Wisata Populer</h2>
+        <div class="destinations">
+            <div class="destination-card">
+                <div class="card-image">🏔️</div>
+                <div class="card-content">
+                    <h3>Gunung Bromo</h3>
+                    <p class="location">Jawa Timur</p>
+                    <p>Nikmati pemandangan sunrise spektakuler dan lautan pasir yang memukau di salah satu gunung berapi paling ikonik di Indonesia.</p>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+
+            <div class="destination-card">
+                <div class="card-image">🏖️</div>
+                <div class="card-content">
+                    <h3>Raja Ampat</h3>
+                    <p class="location">Papua Barat</p>
+                    <p>Surga bawah laut dengan keanekaragaman hayati terkaya di dunia. Sempurna untuk snorkeling dan diving.</p>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+
+            <div class="destination-card">
+                <div class="card-image">🌋</div>
+                <div class="card-content">
+                    <h3>Danau Toba</h3>
+                    <p class="location">Sumatera Utara</p>
+                    <p>Danau vulkanik terbesar di Indonesia dengan pemandangan yang menakjubkan dan budaya Batak yang kaya.</p>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+
+            <div class="destination-card">
+                <div class="card-image">🦎</div>
+                <div class="card-content">
+                    <h3>Pulau Komodo</h3>
+                    <p class="location">Nusa Tenggara Timur</p>
+                    <p>Rumah bagi komodo, kadal terbesar di dunia, dengan pantai pink yang eksotis dan pemandangan alam yang luar biasa.</p>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+
+            <div class="destination-card">
+                <div class="card-image">🌾</div>
+                <div class="card-content">
+                    <h3>Tegalalang Rice Terrace</h3>
+                    <p class="location">Bali</p>
+                    <p>Sawah terasering yang indah dengan sistem irigasi tradisional Subak yang terkenal di seluruh dunia.</p>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+
+            <div class="destination-card">
+                <div class="card-image">🏞️</div>
+                <div class="card-content">
+                    <h3>Kawah Ijen</h3>
+                    <p class="location">Jawa Timur</p>
+                    <p>Fenomena blue fire yang langka dan danau kawah berwarna tosca yang memukau di ketinggian 2.386 mdpl.</p>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section>
+        <h2 class="section-title">Mengapa Memilih Kami?</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🗺️</div>
+                <h3>Panduan Lengkap</h3>
+                <p>Informasi detail tentang setiap destinasi wisata alam di Indonesia</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>Harga Terbaik</h3>
+                <p>Dapatkan penawaran dan paket wisata dengan harga yang kompetitif</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h3>Aman & Terpercaya</h3>
+                <p>Layanan terpercaya dengan standar keamanan tinggi untuk perjalanan Anda</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌟</div>
+                <h3>Pengalaman Terbaik</h3>
+                <p>Nikmati pengalaman wisata yang tak terlupakan bersama kami</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="about">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="about-content">
+            <div class="about-image">🌏</div>
+            <div class="about-text">
+                <h3>Misi Kami</h3>
+                <p>Kami berkomitmen untuk memperkenalkan keindahan alam Indonesia kepada dunia. Dengan pengalaman lebih dari 10 tahun, kami telah membantu ribuan wisatawan menjelajahi destinasi-destinasi menakjubkan di Nusantara.</p>
+                <p>Tim kami terdiri dari para profesional berpengalaman yang berdedikasi untuk memberikan layanan terbaik dan pengalaman wisata yang tidak terlupakan.</p>
+                <p>Bergabunglah dengan kami dalam petualangan menjelajahi kekayaan alam Indonesia yang luar biasa!</p>
+                <a href="#kontak" class="btn">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak">
+        <h3>Wisata Alam Indonesia</h3>
+        <p>Email: info@wisataalam.id | Telepon: +62 812-3456-7890</p>
+        <p>Alamat: Jl. Wisata No. 123, Jakarta, Indonesia</p>
+        <div class="social-links">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="#" title="YouTube">📹</a>
+        </div>
+        <p style="margin-top: 2rem;">&copy; 2024 Wisata Alam Indonesia. All rights reserved.</p>
+    </footer>
+</body>
+</html>
