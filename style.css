@@ -1004,3 +1004,46 @@ body {
 .package-specs.dynamic {
     display: none;
 }
+
+/* ===== INTERACTIVE PARTICLES ===== */
+.interactive-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    animation: particleFade 1.5s ease-out forwards;
+}
+
+@keyframes particleFade {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
+    }
+}
+
+.click-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    animation: clickExplosion 0.8s ease-out forwards;
+}
+
+@keyframes clickExplosion {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(var(--tx), var(--ty)) scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(var(--tx) * 2), calc(var(--ty) * 2)) scale(0.5);
+    }
+}

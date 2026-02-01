@@ -1,6 +1,6 @@
-// =======================================
+// ========================================
 // KONFIGURASI NOMOR - UBAH DI SINI SAJA!
-// =======================================
+// ========================================
 const WHATSAPP_NUMBER = '6285126053305'; // Format: 62xxxxxxxxxx (pakai kode negara 62, tanpa +)
 const DANA_NUMBER = '081230637481'; // Format: 08xxxxxxxxxx
 
@@ -194,6 +194,113 @@ document.addEventListener('DOMContentLoaded', function() {
         footerWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}`;
     }
 });
+
+// ===== INTERACTIVE PARTICLES =====
+// Warna partikel: pink, ungu, hitam, putih
+const particleColors = ['#E91E63', '#9C27B0', '#2D2D2D', '#FFFFFF'];
+
+// Partikel saat mouse move
+let lastMouseMoveTime = 0;
+const mouseMoveThrottle = 50; // milliseconds
+
+document.addEventListener('mousemove', function(e) {
+    const now = Date.now();
+    if (now - lastMouseMoveTime < mouseMoveThrottle) return;
+    lastMouseMoveTime = now;
+    
+    createMouseParticle(e.clientX, e.clientY);
+});
+
+function createMouseParticle(x, y) {
+    const particle = document.createElement('div');
+    particle.className = 'interactive-particle';
+    
+    // Random size between 4-10px
+    const size = Math.random() * 6 + 4;
+    particle.style.width = size + 'px';
+    particle.style.height = size + 'px';
+    
+    // Random color from array
+    const color = particleColors[Math.floor(Math.random() * particleColors.length)];
+    particle.style.backgroundColor = color;
+    particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+    
+    // Position
+    particle.style.left = x + 'px';
+    particle.style.top = y + 'px';
+    
+    // Random movement direction
+    const tx = (Math.random() - 0.5) * 100;
+    const ty = (Math.random() - 0.5) * 100;
+    particle.style.setProperty('--tx', tx + 'px');
+    particle.style.setProperty('--ty', ty + 'px');
+    
+    document.body.appendChild(particle);
+    
+    // Remove after animation
+    setTimeout(() => {
+        particle.remove();
+    }, 1500);
+}
+
+// Partikel explosion saat click
+document.addEventListener('click', function(e) {
+    createClickExplosion(e.clientX, e.clientY);
+});
+
+function createClickExplosion(x, y) {
+    // Create multiple particles in burst
+    const particleCount = 12;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'click-particle';
+        
+        // Random size between 6-14px
+        const size = Math.random() * 8 + 6;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        // Random color from array
+        const color = particleColors[Math.floor(Math.random() * particleColors.length)];
+        particle.style.backgroundColor = color;
+        particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+        
+        // Position
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        
+        // Spread particles in circle
+        const angle = (i / particleCount) * Math.PI * 2;
+        const distance = 50 + Math.random() * 30;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        particle.style.setProperty('--tx', tx + 'px');
+        particle.style.setProperty('--ty', ty + 'px');
+        
+        document.body.appendChild(particle);
+        
+        // Remove after animation
+        setTimeout(() => {
+            particle.remove();
+        }, 800);
+    }
+}
+
+// Touch support for mobile
+document.addEventListener('touchmove', function(e) {
+    const now = Date.now();
+    if (now - lastMouseMoveTime < mouseMoveThrottle) return;
+    lastMouseMoveTime = now;
+    
+    const touch = e.touches[0];
+    createMouseParticle(touch.clientX, touch.clientY);
+}, { passive: true });
+
+document.addEventListener('touchstart', function(e) {
+    const touch = e.touches[0];
+    createClickExplosion(touch.clientX, touch.clientY);
+}, { passive: true });
 
 // Add CSS for tab content
 const style = document.createElement('style');
