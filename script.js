@@ -1,3 +1,9 @@
+// =======================================
+// KONFIGURASI NOMOR - UBAH DI SINI SAJA!
+// =======================================
+const WHATSAPP_NUMBER = '6285126053305'; // Format: 62xxxxxxxxxx (pakai kode negara 62, tanpa +)
+const DANA_NUMBER = '081230637481'; // Format: 08xxxxxxxxxx
+
 // Tab Switching Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -32,9 +38,10 @@ function openPaymentModal(productName, price) {
     
     // Update WhatsApp links dengan nama produk
     const encodedProduct = encodeURIComponent(productName);
+    const waMessage = `Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20untuk%20produk%20*${encodedProduct}*`;
     const whatsappLinks = document.querySelectorAll('.whatsapp-btn');
     whatsappLinks.forEach(link => {
-        link.href = `https://wa.me/6285126053305?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20untuk%20produk%20*${encodedProduct}*`;
+        link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
     });
     
     // Reset payment details
@@ -59,23 +66,39 @@ function showPaymentDetail(method) {
 }
 
 function copyDana() {
-    const danaNumber = '081230637481'; // Nomor tanpa format
+    // Fallback method untuk browser yang tidak support clipboard API
+    const textArea = document.createElement('textarea');
+    textArea.value = DANA_NUMBER;
+    textArea.style.position = 'fixed';
+    textArea.style.top = '0';
+    textArea.style.left = '0';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
     
-    // Copy to clipboard
-    navigator.clipboard.writeText(danaNumber).then(() => {
-        // Change button text temporarily
-        const btn = event.target;
-        const originalText = btn.textContent;
-        btn.textContent = '✅ Tersalin!';
-        btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+    try {
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
         
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)';
-        }, 2000);
-    }).catch(err => {
-        alert('Gagal menyalin. Silakan salin manual: ' + danaNumber);
-    });
+        if (successful) {
+            // Change button text temporarily
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = '✅ Tersalin: ' + DANA_NUMBER;
+            btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)';
+            }, 2000);
+        } else {
+            alert('Nomor DANA: ' + DANA_NUMBER + '\nSilakan salin manual');
+        }
+    } catch (err) {
+        document.body.removeChild(textArea);
+        alert('Nomor DANA: ' + DANA_NUMBER + '\nSilakan salin manual');
+    }
 }
 
 function downloadQris() {
@@ -162,6 +185,14 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
+});
+
+// Update WhatsApp link di footer saat halaman load
+document.addEventListener('DOMContentLoaded', function() {
+    const footerWaLink = document.querySelector('.footer-social a[aria-label="WhatsApp"]');
+    if (footerWaLink) {
+        footerWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}`;
+    }
 });
 
 // Add CSS for tab content
