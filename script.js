@@ -195,127 +195,207 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ===== INTERACTIVE PARTICLES =====
-// Warna partikel: pink, ungu, hitam, putih
-const particleColors = ['#E91E63', '#9C27B0', '#2D2D2D', '#FFFFFF'];
+// ===== EPIC INTERACTIVE PARTICLES =====
+// Warna pelangi untuk partikel
+const rainbowColors = [
+    '#FF1493', // Hot Pink
+    '#E91E63', // Pink
+    '#9C27B0', // Purple
+    '#673AB7', // Deep Purple
+    '#3F51B5', // Indigo
+    '#2196F3', // Blue
+    '#00BCD4', // Cyan
+    '#00E676', // Green
+    '#FFEB3B', // Yellow
+    '#FF9800', // Orange
+    '#FF5722', // Red-Orange
+    '#FFFFFF'  // White
+];
 
-// Partikel saat mouse move - LEBIH JARANG
-let lastMouseMoveTime = 0;
-const mouseMoveThrottle = 150; // Ditingkatkan dari 50ms ke 150ms (lebih jarang)
+// Mouse trail dengan garis putih + partikel pelangi
+let lastTrailTime = 0;
+const trailThrottle = 20; // Sangat cepat untuk trail smooth
 
 document.addEventListener('mousemove', function(e) {
     const now = Date.now();
-    if (now - lastMouseMoveTime < mouseMoveThrottle) return;
-    lastMouseMoveTime = now;
+    if (now - lastTrailTime < trailThrottle) return;
+    lastTrailTime = now;
     
-    // Hanya 30% chance muncul partikel (lebih jarang)
-    if (Math.random() > 0.3) return;
-    
-    createMouseParticle(e.clientX, e.clientY);
+    createMouseTrail(e.clientX, e.clientY);
 });
 
-function createMouseParticle(x, y) {
+function createMouseTrail(x, y) {
+    // Garis putih trail
+    const trail = document.createElement('div');
+    trail.className = 'mouse-trail';
+    trail.style.left = x + 'px';
+    trail.style.top = y + 'px';
+    document.body.appendChild(trail);
+    
+    setTimeout(() => trail.remove(), 600);
+    
+    // Partikel pelangi kecil di sekitar trail (random spawn)
+    if (Math.random() > 0.6) { // 40% chance
+        createRainbowParticle(x, y);
+    }
+    
+    // Sparkle bintang sesekali saat geser
+    if (Math.random() > 0.95) { // 5% chance - rare
+        createSparkle(x, y, 1); // 1 sparkle
+    }
+}
+
+function createRainbowParticle(x, y) {
     const particle = document.createElement('div');
-    particle.className = 'interactive-particle';
+    particle.className = 'rainbow-particle';
     
-    // Size lebih kecil: 3-6px (dari 4-10px)
-    const size = Math.random() * 3 + 3;
-    particle.style.width = size + 'px';
-    particle.style.height = size + 'px';
-    
-    // Random color from array
-    const color = particleColors[Math.floor(Math.random() * particleColors.length)];
+    // Random rainbow color
+    const color = rainbowColors[Math.floor(Math.random() * rainbowColors.length)];
     particle.style.backgroundColor = color;
-    particle.style.boxShadow = `0 0 ${size}px ${color}`; // Glow lebih kecil
+    particle.style.boxShadow = `0 0 8px ${color}`;
     
-    // Position dengan sedikit offset random
-    const offsetX = (Math.random() - 0.5) * 20;
-    const offsetY = (Math.random() - 0.5) * 20;
+    // Position dengan offset
+    const offsetX = (Math.random() - 0.5) * 15;
+    const offsetY = (Math.random() - 0.5) * 15;
     particle.style.left = (x + offsetX) + 'px';
     particle.style.top = (y + offsetY) + 'px';
     
-    // Movement lebih subtle
-    const tx = (Math.random() - 0.5) * 50; // Dari 100 ke 50
-    const ty = (Math.random() - 0.5) * 50 - 30; // Cenderung ke atas
+    // Float movement
+    const tx = (Math.random() - 0.5) * 30;
+    const ty = (Math.random() - 0.5) * 30;
     particle.style.setProperty('--tx', tx + 'px');
     particle.style.setProperty('--ty', ty + 'px');
     
     document.body.appendChild(particle);
-    
-    // Remove after animation
-    setTimeout(() => {
-        particle.remove();
-    }, 1500);
+    setTimeout(() => particle.remove(), 800);
 }
 
-// Partikel explosion saat click - LEBIH SEDIKIT
-document.addEventListener('click', function(e) {
-    // Skip jika click di button/link (supaya tidak mengganggu UX)
-    if (e.target.closest('button, a, .payment-btn, .product-item')) return;
-    
-    createClickExplosion(e.clientX, e.clientY);
-});
-
-function createClickExplosion(x, y) {
-    // Hanya 5-6 partikel (dari 12)
-    const particleCount = 5 + Math.floor(Math.random() * 2);
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'click-particle';
+// Sparkle star effect
+function createSparkle(x, y, count = 1) {
+    for (let i = 0; i < count; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle-particle';
+        sparkle.innerHTML = '✨'; // Emoji sparkle
+        sparkle.style.fontSize = (12 + Math.random() * 8) + 'px';
+        sparkle.style.left = x + 'px';
+        sparkle.style.top = y + 'px';
         
-        // Size lebih kecil: 4-8px (dari 6-14px)
-        const size = Math.random() * 4 + 4;
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        
-        // Random color from array
-        const color = particleColors[Math.floor(Math.random() * particleColors.length)];
-        particle.style.backgroundColor = color;
-        particle.style.boxShadow = `0 0 ${size}px ${color}`; // Glow lebih kecil
-        
-        // Position
-        particle.style.left = x + 'px';
-        particle.style.top = y + 'px';
-        
-        // Spread lebih dekat dan natural
-        const angle = (i / particleCount) * Math.PI * 2 + Math.random() * 0.5;
-        const distance = 30 + Math.random() * 20; // Dari 50-80 ke 30-50
+        // Random movement
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 30 + Math.random() * 40;
         const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance - 10; // Sedikit ke atas
-        particle.style.setProperty('--tx', tx + 'px');
-        particle.style.setProperty('--ty', ty + 'px');
+        const ty = Math.sin(angle) * distance;
+        sparkle.style.setProperty('--tx', tx + 'px');
+        sparkle.style.setProperty('--ty', ty + 'px');
         
-        document.body.appendChild(particle);
-        
-        // Remove after animation
-        setTimeout(() => {
-            particle.remove();
-        }, 800);
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
     }
 }
 
-// Touch support for mobile - LEBIH JARANG
+// EPIC CLICK EXPLOSION - Bintang meledak seperti di game!
+document.addEventListener('click', function(e) {
+    // Jangan ganggu button/link
+    if (e.target.closest('button, a, .payment-btn, .product-item')) return;
+    
+    createStarExplosion(e.clientX, e.clientY);
+});
+
+function createStarExplosion(x, y) {
+    // Jumlah bintang yang meledak: 15-20 (LEBIH BANYAK!)
+    const starCount = 15 + Math.floor(Math.random() * 6);
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star-explosion';
+        
+        // Berbagai jenis bintang
+        const starTypes = ['✨', '⭐', '🌟', '💫', '⚡', '💥', '✦', '★'];
+        star.innerHTML = starTypes[Math.floor(Math.random() * starTypes.length)];
+        
+        // Size random
+        const size = 14 + Math.random() * 12;
+        star.style.fontSize = size + 'px';
+        
+        // Random color dari rainbow
+        const color = rainbowColors[Math.floor(Math.random() * rainbowColors.length)];
+        star.style.color = color;
+        star.style.textShadow = `0 0 ${size}px ${color}, 0 0 ${size * 2}px ${color}`;
+        
+        // Position
+        star.style.left = x + 'px';
+        star.style.top = y + 'px';
+        
+        // Explosion spread - meledak ke segala arah!
+        const angle = (i / starCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
+        const distance = 60 + Math.random() * 80;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        star.style.setProperty('--tx', tx + 'px');
+        star.style.setProperty('--ty', ty + 'px');
+        
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 1200);
+    }
+    
+    // Tambahan: Flash putih di center
+    createFlash(x, y);
+}
+
+function createFlash(x, y) {
+    const flash = document.createElement('div');
+    flash.style.position = 'fixed';
+    flash.style.left = x + 'px';
+    flash.style.top = y + 'px';
+    flash.style.width = '20px';
+    flash.style.height = '20px';
+    flash.style.background = 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%)';
+    flash.style.borderRadius = '50%';
+    flash.style.transform = 'translate(-50%, -50%)';
+    flash.style.pointerEvents = 'none';
+    flash.style.zIndex = '9999';
+    flash.style.animation = 'flashExpand 0.3s ease-out';
+    
+    document.body.appendChild(flash);
+    setTimeout(() => flash.remove(), 300);
+}
+
+// CSS untuk flash animation
+const flashStyle = document.createElement('style');
+flashStyle.textContent = `
+@keyframes flashExpand {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(3);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(5);
+    }
+}
+`;
+document.head.appendChild(flashStyle);
+
+// Touch support - EPIC VERSION
 let lastTouchMoveTime = 0;
 document.addEventListener('touchmove', function(e) {
     const now = Date.now();
-    if (now - lastTouchMoveTime < 200) return; // Lebih jarang
+    if (now - lastTouchMoveTime < 30) return;
     lastTouchMoveTime = now;
     
-    // Hanya 20% chance (lebih jarang di mobile)
-    if (Math.random() > 0.2) return;
-    
     const touch = e.touches[0];
-    createMouseParticle(touch.clientX, touch.clientY);
+    createMouseTrail(touch.clientX, touch.clientY);
 }, { passive: true });
 
 document.addEventListener('touchstart', function(e) {
     const touch = e.touches[0];
-    
-    // Skip jika touch di button/link
     if (e.target.closest('button, a, .payment-btn, .product-item')) return;
     
-    createClickExplosion(touch.clientX, touch.clientY);
+    createStarExplosion(touch.clientX, touch.clientY);
 }, { passive: true });
 
 // Add CSS for tab content

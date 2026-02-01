@@ -1005,50 +1005,95 @@ body {
     display: none;
 }
 
-/* ===== INTERACTIVE PARTICLES ===== */
-.interactive-particle {
+/* ===== INTERACTIVE PARTICLES - EPIC VERSION ===== */
+/* Trail garis putih */
+.mouse-trail {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: trailFade 0.6s ease-out forwards;
+}
+
+@keyframes trailFade {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+}
+
+/* Partikel bintang sparkle */
+.sparkle-particle {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    border-radius: 50%;
-    animation: particleFade 2s ease-out forwards;
-    opacity: 0.7;
+    animation: sparkleFade 1s ease-out forwards;
 }
 
-@keyframes particleFade {
+@keyframes sparkleFade {
     0% {
-        opacity: 0.7;
-        transform: translate(0, 0) scale(1);
+        opacity: 1;
+        transform: translate(0, 0) scale(0) rotate(0deg);
     }
     50% {
-        opacity: 0.5;
+        opacity: 1;
+        transform: translate(var(--tx), var(--ty)) scale(1) rotate(180deg);
     }
     100% {
         opacity: 0;
-        transform: translate(var(--tx), var(--ty)) scale(0.3);
+        transform: translate(calc(var(--tx) * 1.5), calc(var(--ty) * 1.5)) scale(0.3) rotate(360deg);
     }
 }
 
-.click-particle {
+/* Click explosion - bintang meledak */
+.star-explosion {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    border-radius: 50%;
-    animation: clickExplosion 1s ease-out forwards;
-    opacity: 0.8;
+    animation: explosionFade 1.2s ease-out forwards;
 }
 
-@keyframes clickExplosion {
+@keyframes explosionFade {
     0% {
-        opacity: 0.8;
-        transform: translate(0, 0) scale(0);
+        opacity: 1;
+        transform: translate(0, 0) scale(0) rotate(0deg);
     }
-    30% {
-        opacity: 0.9;
-        transform: translate(calc(var(--tx) * 0.3), calc(var(--ty) * 0.3)) scale(1);
+    20% {
+        opacity: 1;
+        transform: translate(calc(var(--tx) * 0.3), calc(var(--ty) * 0.3)) scale(1.5) rotate(90deg);
     }
     100% {
         opacity: 0;
-        transform: translate(var(--tx), var(--ty)) scale(0.2);
+        transform: translate(var(--tx), var(--ty)) scale(0.2) rotate(360deg);
+    }
+}
+
+/* Partikel pelangi kecil di sekitar trail */
+.rainbow-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    animation: rainbowFloat 0.8s ease-out forwards;
+}
+
+@keyframes rainbowFloat {
+    0% {
+        opacity: 0.9;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
     }
 }
