@@ -1,6 +1,6 @@
-// =======================================
+// ========================================
 // KONFIGURASI NOMOR - UBAH DI SINI SAJA!
-// =======================================
+// ========================================
 const WHATSAPP_NUMBER = '6285126053305'; // Format: 62xxxxxxxxxx (pakai kode negara 62, tanpa +)
 const DANA_NUMBER = '081230637481'; // Format: 08xxxxxxxxxx
 
@@ -193,6 +193,31 @@ document.addEventListener('DOMContentLoaded', function() {
     if (footerWaLink) {
         footerWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}`;
     }
+});
+
+// ===== SCROLL TO TOP BUTTON =====
+// Buat button scroll to top
+const scrollTopBtn = document.createElement('button');
+scrollTopBtn.className = 'scroll-to-top';
+scrollTopBtn.innerHTML = '↑';
+scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+document.body.appendChild(scrollTopBtn);
+
+// Show/hide button saat scroll
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('show');
+    } else {
+        scrollTopBtn.classList.remove('show');
+    }
+});
+
+// Click handler untuk scroll ke atas
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 // Add CSS for tab content
