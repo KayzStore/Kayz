@@ -3,457 +3,677 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wisata Alam Indonesia - Jelajahi Keindahan Nusantara</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c2c 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo::before {
-            content: "🌿";
-            margin-right: 0.5rem;
-            font-size: 2rem;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: #b8e994;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a7c2c" width="1200" height="600"/><path fill="%233d6625" d="M0 400 Q300 350 600 400 T1200 400 V600 H0 Z"/><circle fill="%23f9ca24" cx="150" cy="100" r="50"/><path fill="%232d5016" d="M0 500 Q200 480 400 500 T800 500 T1200 500 V600 H0 Z"/></svg>');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 60px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #4a7c2c;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn:hover {
-            background: #2d5016;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        /* Sections */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2d5016;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: #4a7c2c;
-            margin: 1rem auto 0;
-            border-radius: 2px;
-        }
-
-        /* Destination Cards */
-        .destinations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .destination-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .destination-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #4a7c2c 0%, #2d5016 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-content h3 {
-            color: #2d5016;
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .card-content .location {
-            color: #666;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .card-content .location::before {
-            content: "📍";
-            margin-right: 0.5rem;
-        }
-
-        .card-content p {
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .card-content .rating {
-            color: #f9ca24;
-            font-size: 1.2rem;
-        }
-
-        /* About Section */
-        .about {
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #4a7c2c 0%, #2d5016 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-        }
-
-        .about-text h3 {
-            color: #2d5016;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .about-text p {
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature h3 {
-            color: #2d5016;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature p {
-            color: #666;
-        }
-
-        /* Footer */
-        footer {
-            background: #2d5016;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: #b8e994;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <title>Kayz Store - Premium Digital Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">Wisata Alam</div>
-            <ul>
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#destinasi">Destinasi</a></li>
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Animated Background Particles -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="kayz.png" alt="Kayz Store" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="display:none;">
+                        <rect width="20" height="20" rx="4" fill="url(#gradient1)"/>
+                        <defs>
+                            <linearGradient id="gradient1" x1="0" y1="0" x2="20" y2="20">
+                                <stop offset="0%" stop-color="#E91E63"/>
+                                <stop offset="100%" stop-color="#9C27B0"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>Kayz Store</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#fitur">Fitur</a></li>
+                    <li><a href="#produk">Produk</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+                <a href="#produk" class="btn-primary">Buka Pesanan</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Jelajahi Keindahan Alam Indonesia</h1>
-            <p>Temukan destinasi wisata alam terbaik di Nusantara</p>
-            <a href="#destinasi" class="btn">Mulai Jelajah</a>
-        </div>
-    </section>
-
-    <!-- Destinations Section -->
-    <section id="destinasi">
-        <h2 class="section-title">Destinasi Wisata Populer</h2>
-        <div class="destinations">
-            <div class="destination-card">
-                <div class="card-image">🏔️</div>
-                <div class="card-content">
-                    <h3>Gunung Bromo</h3>
-                    <p class="location">Jawa Timur</p>
-                    <p>Nikmati pemandangan sunrise spektakuler dan lautan pasir yang memukau di salah satu gunung berapi paling ikonik di Indonesia.</p>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
+    <section class="hero" id="beranda">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 0L10 6L16 8L10 10L8 16L6 10L0 8L6 6L8 0Z" fill="#E91E63"/>
+                    </svg>
+                    <span>Premium Digital Products & Services</span>
                 </div>
-            </div>
-
-            <div class="destination-card">
-                <div class="card-image">🏖️</div>
-                <div class="card-content">
-                    <h3>Raja Ampat</h3>
-                    <p class="location">Papua Barat</p>
-                    <p>Surga bawah laut dengan keanekaragaman hayati terkaya di dunia. Sempurna untuk snorkeling dan diving.</p>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
-            </div>
-
-            <div class="destination-card">
-                <div class="card-image">🌋</div>
-                <div class="card-content">
-                    <h3>Danau Toba</h3>
-                    <p class="location">Sumatera Utara</p>
-                    <p>Danau vulkanik terbesar di Indonesia dengan pemandangan yang menakjubkan dan budaya Batak yang kaya.</p>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
-            </div>
-
-            <div class="destination-card">
-                <div class="card-image">🦎</div>
-                <div class="card-content">
-                    <h3>Pulau Komodo</h3>
-                    <p class="location">Nusa Tenggara Timur</p>
-                    <p>Rumah bagi komodo, kadal terbesar di dunia, dengan pantai pink yang eksotis dan pemandangan alam yang luar biasa.</p>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
-            </div>
-
-            <div class="destination-card">
-                <div class="card-image">🌾</div>
-                <div class="card-content">
-                    <h3>Tegalalang Rice Terrace</h3>
-                    <p class="location">Bali</p>
-                    <p>Sawah terasering yang indah dengan sistem irigasi tradisional Subak yang terkenal di seluruh dunia.</p>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
-            </div>
-
-            <div class="destination-card">
-                <div class="card-image">🏞️</div>
-                <div class="card-content">
-                    <h3>Kawah Ijen</h3>
-                    <p class="location">Jawa Timur</p>
-                    <p>Fenomena blue fire yang langka dan danau kawah berwarna tosca yang memukau di ketinggian 2.386 mdpl.</p>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
+                <h1 class="hero-title">
+                    Solusi Digital Store <span class="gradient-text">Terbaik untuk Anda</span>
+                </h1>
+                <p class="hero-description">
+                    Nikmati berbagai layanan premium mulai dari hosting, bot WhatsApp, 
+                    hingga aplikasi premium dengan harga terjangkau dan support 24/7
+                </p>
+                <a href="#produk" class="btn-hero">Lihat Produk</a>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section>
-        <h2 class="section-title">Mengapa Memilih Kami?</h2>
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🗺️</div>
-                <h3>Panduan Lengkap</h3>
-                <p>Informasi detail tentang setiap destinasi wisata alam di Indonesia</p>
+    <section class="features" id="fitur">
+        <div class="container">
+            <div class="section-header">
+                <h2>Keunggulan Layanan <span class="gradient-text">Kami</span></h2>
+                <p>Kemudahan dan yang terbaik, untuk mendukung kebutuhan digital Anda</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon">💰</div>
-                <h3>Harga Terbaik</h3>
-                <p>Dapatkan penawaran dan paket wisata dengan harga yang kompetitif</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🛡️</div>
-                <h3>Aman & Terpercaya</h3>
-                <p>Layanan terpercaya dengan standar keamanan tinggi untuk perjalanan Anda</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🌟</div>
-                <h3>Pengalaman Terbaik</h3>
-                <p>Nikmati pengalaman wisata yang tak terlupakan bersama kami</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" rx="8" fill="rgba(233, 30, 99, 0.1)"/>
+                            <path d="M16 8L20 14L16 20L12 14L16 8Z" fill="#E91E63"/>
+                        </svg>
+                    </div>
+                    <h3>Harga Terjangkau</h3>
+                    <p>Harga kompetitif dengan kualitas terbaik untuk semua kalangan</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" rx="8" fill="rgba(233, 30, 99, 0.1)"/>
+                            <circle cx="16" cy="16" r="6" fill="#E91E63"/>
+                        </svg>
+                    </div>
+                    <h3>Proses Cepat</h3>
+                    <p>Pengiriman produk instant setelah pembayaran dikonfirmasi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" rx="8" fill="rgba(233, 30, 99, 0.1)"/>
+                            <rect x="10" y="10" width="12" height="12" rx="2" fill="#E91E63"/>
+                        </svg>
+                    </div>
+                    <h3>Full Pengajaran</h3>
+                    <p>Panduan lengkap dan support untuk semua produk yang dibeli</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect width="32" height="32" rx="8" fill="rgba(233, 30, 99, 0.1)"/>
+                            <path d="M16 10L22 16L16 22L10 16L16 10Z" fill="#E91E63"/>
+                        </svg>
+                    </div>
+                    <h3>Bonus Menarik</h3>
+                    <p>Setiap pembelian mendapat bonus tertentu dari kami</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="tentang" class="about">
-        <h2 class="section-title">Tentang Kami</h2>
-        <div class="about-content">
-            <div class="about-image">🌏</div>
-            <div class="about-text">
-                <h3>Misi Kami</h3>
-                <p>Kami berkomitmen untuk memperkenalkan keindahan alam Indonesia kepada dunia. Dengan pengalaman lebih dari 10 tahun, kami telah membantu ribuan wisatawan menjelajahi destinasi-destinasi menakjubkan di Nusantara.</p>
-                <p>Tim kami terdiri dari para profesional berpengalaman yang berdedikasi untuk memberikan layanan terbaik dan pengalaman wisata yang tidak terlupakan.</p>
-                <p>Bergabunglah dengan kami dalam petualangan menjelajahi kekayaan alam Indonesia yang luar biasa!</p>
-                <a href="https://wa.me/6281230637481?text=Halo,%20saya%20tertarik%20dengan%20paket%20wisata%20alam%20Anda" class="btn" target="_blank">Hubungi Kami via WhatsApp</a>
+    <!-- Products Section -->
+    <section class="packages" id="produk">
+        <div class="container">
+            <div class="section-header">
+                <h2>Produk <span class="gradient-text">Kami</span></h2>
+                <p>Pilih kategori produk yang Anda butuhkan</p>
+            </div>
+            <div class="package-tabs">
+                <button class="tab-btn active" data-tab="panel">Panel Hosting</button>
+                <button class="tab-btn" data-tab="jasabug">Jasa Bug WA</button>
+                <button class="tab-btn" data-tab="nomer">Nomer Kosong WA</button>
+                <button class="tab-btn" data-tab="jadibot">Jadibot WA</button>
+                <button class="tab-btn" data-tab="sewabot">Sewa Bot WA</button>
+                <button class="tab-btn" data-tab="aplikasi">Aplikasi Premium</button>
+            </div>
+
+            <!-- Panel Hosting Content -->
+            <div id="content-panel" class="tab-content active">
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Panel Hosting Pterodactyl Private</h3>
+                        </div>
+                        <div class="product-list">
+                            <div class="product-item" onclick="openPaymentModal('RAM 3GB', '3.000')">
+                                <div class="product-info">
+                                    <h4>RAM 3GB</h4>
+                                    <p>Rp 3.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('RAM 4GB', '4.000')">
+                                <div class="product-info">
+                                    <h4>RAM 4GB</h4>
+                                    <p>Rp 4.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('RAM 5GB', '5.000')">
+                                <div class="product-info">
+                                    <h4>RAM 5GB</h4>
+                                    <p>Rp 5.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('RAM 6GB', '6.000')">
+                                <div class="product-info">
+                                    <h4>RAM 6GB</h4>
+                                    <p>Rp 6.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('RAM 7GB', '7.000')">
+                                <div class="product-info">
+                                    <h4>RAM 7GB</h4>
+                                    <p>Rp 7.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('RAM 8GB', '8.000')">
+                                <div class="product-info">
+                                    <h4>RAM 8GB</h4>
+                                    <p>Rp 8.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('RAM 9GB', '9.000')">
+                                <div class="product-info">
+                                    <h4>RAM 9GB</h4>
+                                    <p>Rp 9.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('RAM 10GB', '10.000')">
+                                <div class="product-info">
+                                    <h4>RAM 10GB</h4>
+                                    <p>Rp 10.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jasa Bug WA Content -->
+            <div id="content-jasabug" class="tab-content">
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Jasa Bug WhatsApp</h3>
+                        </div>
+                        <div class="product-list">
+                            <div class="product-item" onclick="openPaymentModal('Jasa Bug WA - 1 Nomer', '4.000')">
+                                <div class="product-info">
+                                    <h4>1 Nomer</h4>
+                                    <p>Rp 4.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nomer Kosong WA Content -->
+            <div id="content-nomer" class="tab-content">
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Nomer Kosong WhatsApp</h3>
+                        </div>
+                        <div class="product-list">
+                            <div class="product-item" onclick="openPaymentModal('Nomer Kosong WA - 1 Nomer', '5.000')">
+                                <div class="product-info">
+                                    <h4>1 Nomer</h4>
+                                    <p>Rp 5.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Nomer Kosong WA - 2 Nomer', '9.000')">
+                                <div class="product-info">
+                                    <h4>2 Nomer</h4>
+                                    <p>Rp 9.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jadibot WA Content -->
+            <div id="content-jadibot" class="tab-content">
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Jadibot WhatsApp</h3>
+                        </div>
+                        <div class="product-list">
+                            <div class="product-item" onclick="openPaymentModal('Jadibot WA - 15 Hari', '8.000')">
+                                <div class="product-info">
+                                    <h4>15 Hari</h4>
+                                    <p>Rp 8.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Jadibot WA - 30 Hari', '15.000')">
+                                <div class="product-info">
+                                    <h4>30 Hari</h4>
+                                    <p>Rp 15.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sewa Bot WA Content -->
+            <div id="content-sewabot" class="tab-content">
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Sewa Bot WhatsApp</h3>
+                        </div>
+                        <div class="product-list">
+                            <div class="product-item" onclick="openPaymentModal('Sewa Bot WA - 1 Hari', '1.000')">
+                                <div class="product-info">
+                                    <h4>1 Hari</h4>
+                                    <p>Rp 1.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Sewa Bot WA - 10 Hari', '7.000')">
+                                <div class="product-info">
+                                    <h4>10 Hari</h4>
+                                    <p>Rp 7.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Sewa Bot WA - 20 Hari', '11.000')">
+                                <div class="product-info">
+                                    <h4>20 Hari</h4>
+                                    <p>Rp 11.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Sewa Bot WA - 30 Hari', '15.000')">
+                                <div class="product-info">
+                                    <h4>30 Hari</h4>
+                                    <p>Rp 15.000</p>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aplikasi Premium Content -->
+            <div id="content-aplikasi" class="tab-content">
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3>Aplikasi Premium</h3>
+                        </div>
+                        <div class="product-list" style="grid-template-columns: 1fr 1fr;">
+                            <div class="product-item" onclick="openPaymentModal('AM Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>AM</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('App Musik Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>App Musik</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('BStation Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>BStation</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Canva Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Canva</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('CapCut Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>CapCut</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('ChatGPT Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>ChatGPT</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Fizzo Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Fizzo</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Gemini Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Gemini</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Get Contact Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Get Contact</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Ibis Paint Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Ibis Paint</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('iQiyi Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>iQiyi</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Lightroom Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Lightroom</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Loklok Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Loklok</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('MangoTV Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>MangoTV</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Meitu Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Meitu</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Melolo Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Melolo</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Microsoft Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Microsoft</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Netflix Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Netflix</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Picsart Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Picsart</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Prime Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Prime</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Remini Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Remini</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Spotify Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Spotify</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Vidio Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Vidio</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Viu Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Viu</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('VPN Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>VPN</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('WeTV Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>WeTV</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Wibuku Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Wibuku</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Wink Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Wink</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('YouTube Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>YouTube</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                            <div class="product-item" onclick="openPaymentModal('Zoom Premium', 'Chat Admin')">
+                                <div class="product-info">
+                                    <h4>Zoom</h4>
+                                </div>
+                                <span class="product-arrow">→</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pertanyaan <span class="gradient-text">Umum</span></h2>
+                <p>Jawaban untuk pertanyaan yang sering ditanyakan</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bagaimana cara melakukan pembayaran?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pilih produk yang Anda inginkan, kemudian pilih metode pembayaran DANA atau QRIS. Setelah transfer, konfirmasi ke admin untuk proses lebih lanjut.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Berapa lama proses pengiriman produk?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Produk akan dikirim maksimal 5-10 menit setelah pembayaran dikonfirmasi oleh admin kami.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah ada garansi untuk produk yang dibeli?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, semua produk kami bergaransi. Jika ada masalah, hubungi admin kami untuk mendapatkan bantuan atau penggantian.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="kontak">
-        <h3>Wisata Alam Indonesia</h3>
-        <p style="margin-top: 2rem;">&copy; 2026 Wisata Alam Indonesia. All rights reserved.</p>
+    <footer class="footer" id="kontak">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="kayz.png" alt="Kayz Store" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="display:none;">
+                            <rect width="20" height="20" rx="4" fill="url(#gradient2)"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="0" y1="0" x2="20" y2="20">
+                                    <stop offset="0%" stop-color="#E91E63"/>
+                                    <stop offset="100%" stop-color="#9C27B0"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span>KayzStore</span>
+                    </div>
+                    <p>Solusi digital terpercaya dengan harga terjangkau. Full pengajaran & bonus untuk setiap pembelian!</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#fitur">Fitur</a></li>
+                        <li><a href="#produk">Produk</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://wa.me/6285126053305" target="_blank" aria-label="WhatsApp">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/UsKayz" target="_blank" aria-label="Telegram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/magershah" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kayz Store. All rights reserved</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closePaymentModal()">&times;</span>
+            <div class="modal-header">
+                <h3 id="productName">Nama Produk</h3>
+                <p>Pilih metode pembayaran untuk melanjutkan</p>
+            </div>
+
+            <div id="paymentMethods" class="payment-methods">
+                <button class="payment-btn" onclick="showPaymentDetail('dana')">
+                    <div class="payment-icon">D</div>
+                    <div class="payment-info">
+                        <h4>DANA</h4>
+                        <p>Transfer via DANA</p>
+                    </div>
+                </button>
+                <button class="payment-btn" onclick="showPaymentDetail('qris')">
+                    <div class="payment-icon">Q</div>
+                    <div class="payment-info">
+                        <h4>QRIS</h4>
+                        <p>Scan QRIS untuk bayar</p>
+                    </div>
+                </button>
+            </div>
+
+            <div id="danaDetail" class="payment-detail">
+                <h4>Transfer ke DANA</h4>
+                <p>Nomor DANA:</p>
+                <div class="dana-number" id="danaNumber">0895-3266-66151</div>
+                <button class="copy-btn" onclick="copyDana()">📋 Salin Nomor</button>
+                <div class="payment-note">
+                    💡 Setelah transfer, screenshot bukti pembayaran dan kirim ke admin WhatsApp untuk konfirmasi
+                </div>
+                <a href="https://wa.me/6285126053305?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20untuk%20produk%20*NAMA_PRODUK*" target="_blank" class="whatsapp-btn">
+                    💬 Sudah Transaksi? Hubungi Kami
+                </a>
+            </div>
+
+            <div id="qrisDetail" class="payment-detail">
+                <h4>Scan QRIS</h4>
+                <div class="qris-image">
+                    <img id="qrisImg" src="qris.png" alt="QRIS Code" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22250%22 height=%22250%22%3E%3Crect fill=%22%23E91E63%22 width=%22250%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2220%22%3EQRIS CODE%3C/text%3E%3C/svg%3E'">
+                </div>
+                <button class="copy-btn" onclick="downloadQris()" style="background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);">
+                    📥 Download QRIS
+                </button>
+                <div class="payment-note">
+                    💡 Scan QR code menggunakan aplikasi e-wallet Anda, kemudian screenshot bukti pembayaran dan kirim ke admin WhatsApp
+                </div>
+                <a href="https://wa.me/6285126053305?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20via%20QRIS%20untuk%20produk%20*NAMA_PRODUK*" target="_blank" class="whatsapp-btn">
+                    💬 Sudah Transaksi? Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
