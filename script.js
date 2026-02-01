@@ -199,14 +199,17 @@ document.addEventListener('DOMContentLoaded', function() {
 // Warna partikel: pink, ungu, hitam, putih
 const particleColors = ['#E91E63', '#9C27B0', '#2D2D2D', '#FFFFFF'];
 
-// Partikel saat mouse move
+// Partikel saat mouse move - LEBIH JARANG
 let lastMouseMoveTime = 0;
-const mouseMoveThrottle = 50; // milliseconds
+const mouseMoveThrottle = 150; // Ditingkatkan dari 50ms ke 150ms (lebih jarang)
 
 document.addEventListener('mousemove', function(e) {
     const now = Date.now();
     if (now - lastMouseMoveTime < mouseMoveThrottle) return;
     lastMouseMoveTime = now;
+    
+    // Hanya 30% chance muncul partikel (lebih jarang)
+    if (Math.random() > 0.3) return;
     
     createMouseParticle(e.clientX, e.clientY);
 });
@@ -215,23 +218,25 @@ function createMouseParticle(x, y) {
     const particle = document.createElement('div');
     particle.className = 'interactive-particle';
     
-    // Random size between 4-10px
-    const size = Math.random() * 6 + 4;
+    // Size lebih kecil: 3-6px (dari 4-10px)
+    const size = Math.random() * 3 + 3;
     particle.style.width = size + 'px';
     particle.style.height = size + 'px';
     
     // Random color from array
     const color = particleColors[Math.floor(Math.random() * particleColors.length)];
     particle.style.backgroundColor = color;
-    particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+    particle.style.boxShadow = `0 0 ${size}px ${color}`; // Glow lebih kecil
     
-    // Position
-    particle.style.left = x + 'px';
-    particle.style.top = y + 'px';
+    // Position dengan sedikit offset random
+    const offsetX = (Math.random() - 0.5) * 20;
+    const offsetY = (Math.random() - 0.5) * 20;
+    particle.style.left = (x + offsetX) + 'px';
+    particle.style.top = (y + offsetY) + 'px';
     
-    // Random movement direction
-    const tx = (Math.random() - 0.5) * 100;
-    const ty = (Math.random() - 0.5) * 100;
+    // Movement lebih subtle
+    const tx = (Math.random() - 0.5) * 50; // Dari 100 ke 50
+    const ty = (Math.random() - 0.5) * 50 - 30; // Cenderung ke atas
     particle.style.setProperty('--tx', tx + 'px');
     particle.style.setProperty('--ty', ty + 'px');
     
@@ -243,38 +248,41 @@ function createMouseParticle(x, y) {
     }, 1500);
 }
 
-// Partikel explosion saat click
+// Partikel explosion saat click - LEBIH SEDIKIT
 document.addEventListener('click', function(e) {
+    // Skip jika click di button/link (supaya tidak mengganggu UX)
+    if (e.target.closest('button, a, .payment-btn, .product-item')) return;
+    
     createClickExplosion(e.clientX, e.clientY);
 });
 
 function createClickExplosion(x, y) {
-    // Create multiple particles in burst
-    const particleCount = 12;
+    // Hanya 5-6 partikel (dari 12)
+    const particleCount = 5 + Math.floor(Math.random() * 2);
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'click-particle';
         
-        // Random size between 6-14px
-        const size = Math.random() * 8 + 6;
+        // Size lebih kecil: 4-8px (dari 6-14px)
+        const size = Math.random() * 4 + 4;
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
         
         // Random color from array
         const color = particleColors[Math.floor(Math.random() * particleColors.length)];
         particle.style.backgroundColor = color;
-        particle.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+        particle.style.boxShadow = `0 0 ${size}px ${color}`; // Glow lebih kecil
         
         // Position
         particle.style.left = x + 'px';
         particle.style.top = y + 'px';
         
-        // Spread particles in circle
-        const angle = (i / particleCount) * Math.PI * 2;
-        const distance = 50 + Math.random() * 30;
+        // Spread lebih dekat dan natural
+        const angle = (i / particleCount) * Math.PI * 2 + Math.random() * 0.5;
+        const distance = 30 + Math.random() * 20; // Dari 50-80 ke 30-50
         const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance;
+        const ty = Math.sin(angle) * distance - 10; // Sedikit ke atas
         particle.style.setProperty('--tx', tx + 'px');
         particle.style.setProperty('--ty', ty + 'px');
         
@@ -287,11 +295,15 @@ function createClickExplosion(x, y) {
     }
 }
 
-// Touch support for mobile
+// Touch support for mobile - LEBIH JARANG
+let lastTouchMoveTime = 0;
 document.addEventListener('touchmove', function(e) {
     const now = Date.now();
-    if (now - lastMouseMoveTime < mouseMoveThrottle) return;
-    lastMouseMoveTime = now;
+    if (now - lastTouchMoveTime < 200) return; // Lebih jarang
+    lastTouchMoveTime = now;
+    
+    // Hanya 20% chance (lebih jarang di mobile)
+    if (Math.random() > 0.2) return;
     
     const touch = e.touches[0];
     createMouseParticle(touch.clientX, touch.clientY);
@@ -299,6 +311,10 @@ document.addEventListener('touchmove', function(e) {
 
 document.addEventListener('touchstart', function(e) {
     const touch = e.touches[0];
+    
+    // Skip jika touch di button/link
+    if (e.target.closest('button, a, .payment-btn, .product-item')) return;
+    
     createClickExplosion(touch.clientX, touch.clientY);
 }, { passive: true });
 
