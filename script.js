@@ -34,7 +34,7 @@ function openPaymentModal(productName, price) {
     const encodedProduct = encodeURIComponent(productName);
     const whatsappLinks = document.querySelectorAll('.whatsapp-btn');
     whatsappLinks.forEach(link => {
-        link.href = `https://wa.me/6289532666151?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20untuk%20produk%20*${encodedProduct}*`;
+        link.href = `https://wa.me/6285126053305?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20untuk%20produk%20*${encodedProduct}*`;
     });
     
     // Reset payment details
@@ -59,7 +59,7 @@ function showPaymentDetail(method) {
 }
 
 function copyDana() {
-    const danaNumber = '089532666151'; // Nomor tanpa format
+    const danaNumber = '081230637481'; // Nomor tanpa format
     
     // Copy to clipboard
     navigator.clipboard.writeText(danaNumber).then(() => {
