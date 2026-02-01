@@ -1,8 +1,8 @@
-// ========================================
+// =======================================
 // KONFIGURASI NOMOR - UBAH DI SINI SAJA!
-// ========================================
+// =======================================
 const WHATSAPP_NUMBER = '6285126053305'; // Format: 62xxxxxxxxxx (pakai kode negara 62, tanpa +)
-const DANA_NUMBER = '6285126053305'; // Format: 08xxxxxxxxxx
+const DANA_NUMBER = '081230637481'; // Format: 08xxxxxxxxxx
 
 // Tab Switching Functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -194,91 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
         footerWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}`;
     }
 });
-
-// ===== SIMPLE PARTICLES - GAME STYLE =====
-// Trail putih saat geser mouse (seperti melukis)
-let lastTrailTime = 0;
-const trailThrottle = 15; // Very smooth
-
-document.addEventListener('mousemove', function(e) {
-    const now = Date.now();
-    if (now - lastTrailTime < trailThrottle) return;
-    lastTrailTime = now;
-    
-    createMouseTrail(e.clientX, e.clientY);
-});
-
-function createMouseTrail(x, y) {
-    const trail = document.createElement('div');
-    trail.className = 'mouse-trail';
-    trail.style.left = x + 'px';
-    trail.style.top = y + 'px';
-    document.body.appendChild(trail);
-    
-    setTimeout(() => trail.remove(), 500);
-}
-
-// Click - Sparkle bintang PUTIH meledak (seperti di gambar)
-document.addEventListener('click', function(e) {
-    if (e.target.closest('button, a, .payment-btn, .product-item, .tab-btn')) return;
-    
-    createSparkleExplosion(e.clientX, e.clientY);
-});
-
-function createSparkleExplosion(x, y) {
-    // 8-12 bintang sparkle putih
-    const sparkleCount = 8 + Math.floor(Math.random() * 5);
-    
-    for (let i = 0; i < sparkleCount; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle-star';
-        
-        // Bintang putih
-        const size = 14 + Math.random() * 10;
-        sparkle.innerHTML = '✨';
-        sparkle.style.fontSize = size + 'px';
-        sparkle.style.filter = 'brightness(2)'; // Extra bright
-        sparkle.style.left = x + 'px';
-        sparkle.style.top = y + 'px';
-        
-        // Meledak ke segala arah
-        const angle = (i / sparkleCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
-        const distance = 40 + Math.random() * 60;
-        const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance;
-        sparkle.style.setProperty('--tx', tx + 'px');
-        sparkle.style.setProperty('--ty', ty + 'px');
-        
-        document.body.appendChild(sparkle);
-        setTimeout(() => sparkle.remove(), 1000);
-    }
-    
-    // Flash putih di center
-    const flash = document.createElement('div');
-    flash.className = 'click-flash';
-    flash.style.left = x + 'px';
-    flash.style.top = y + 'px';
-    document.body.appendChild(flash);
-    setTimeout(() => flash.remove(), 400);
-}
-
-// Touch support
-let lastTouchMoveTime = 0;
-document.addEventListener('touchmove', function(e) {
-    const now = Date.now();
-    if (now - lastTouchMoveTime < 20) return;
-    lastTouchMoveTime = now;
-    
-    const touch = e.touches[0];
-    createMouseTrail(touch.clientX, touch.clientY);
-}, { passive: true });
-
-document.addEventListener('touchstart', function(e) {
-    const touch = e.touches[0];
-    if (e.target.closest('button, a, .payment-btn, .product-item, .tab-btn')) return;
-    
-    createSparkleExplosion(touch.clientX, touch.clientY);
-}, { passive: true });
 
 // Add CSS for tab content
 const style = document.createElement('style');
