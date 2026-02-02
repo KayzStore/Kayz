@@ -220,6 +220,28 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
+// ===== CHAT OWNER BUTTON =====
+const chatOwnerBtn = document.querySelector('.chat-owner-btn');
+const chatOptions = document.querySelector('.chat-options');
+let chatOptionsOpen = false;
+
+chatOwnerBtn.addEventListener('click', () => {
+    chatOptionsOpen = !chatOptionsOpen;
+    if (chatOptionsOpen) {
+        chatOptions.classList.add('show');
+    } else {
+        chatOptions.classList.remove('show');
+    }
+});
+
+// Close chat options saat klik di luar
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.chat-owner-container')) {
+        chatOptions.classList.remove('show');
+        chatOptionsOpen = false;
+    }
+});
+
 // Add CSS for tab content
 const style = document.createElement('style');
 style.textContent = `
