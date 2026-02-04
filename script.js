@@ -38,7 +38,7 @@ function openPaymentModal(productName, price) {
     
     // Update WhatsApp links dengan nama produk
     const encodedProduct = encodeURIComponent(productName);
-    const waMessage = `Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20untuk%20produk%20*${encodedProduct}*`;
+    const waMessage = `Halo%20Admin,%20saya%20ingin%20melakukan%20pembayaran%20untuk%20produk%20*${encodedProduct}*`;
     const whatsappLinks = document.querySelectorAll('.whatsapp-btn');
     whatsappLinks.forEach(link => {
         link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
@@ -59,7 +59,10 @@ function showPaymentMethods() {
     document.getElementById('paymentMethods').style.display = 'grid';
     document.getElementById('paymentTitle').style.display = 'block';
 
-    // sembunyikan detail pembayaran
+    // sembunyikan tombol WA biar gak nutup
+    const waBtn = document.querySelector('.whatsapp-btn');
+    if (waBtn) waBtn.style.display = 'none';
+
     document.getElementById('danaDetail').classList.remove('active');
     document.getElementById('qrisDetail').classList.remove('active');
 }
