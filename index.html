@@ -621,60 +621,78 @@
 
     <!-- Payment Modal -->
     <div id="paymentModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closePaymentModal()">&times;</span>
-            <div class="modal-header">
-                <h3 id="productName">Nama Produk</h3>
-                <p>Pilih metode pembayaran untuk melanjutkan</p>
+    <div class="modal-content">
+        <span class="modal-close" onclick="closePaymentModal()">&times;</span>
+
+        <div class="modal-header">
+            <h3 id="productName">Nama Produk</h3>
+            <p>Silakan hubungi kami untuk melanjutkan</p>
+        </div>
+
+        <!-- Tombol utama -->
+        <a href="javascript:void(0)" onclick="showPaymentMethods()" class="whatsapp-btn" style="margin-bottom:15px;">
+            💬 Hubungi via WhatsApp
+        </a>
+
+        <!-- Judul metode pembayaran -->
+        <h4 id="paymentTitle" style="display:none;margin:10px 0;">Metode Pembayaran</h4>
+
+        <!-- Metode pembayaran -->
+        <div id="paymentMethods" class="payment-methods" style="display:none;">
+            <button class="payment-btn" onclick="showPaymentDetail('dana')">
+                <div class="payment-icon">D</div>
+                <div class="payment-info">
+                    <h4>DANA</h4>
+                    <p>Transfer via DANA</p>
+                </div>
+            </button>
+
+            <button class="payment-btn" onclick="showPaymentDetail('qris')">
+                <div class="payment-icon">Q</div>
+                <div class="payment-info">
+                    <h4>QRIS</h4>
+                    <p>Scan QRIS untuk bayar</p>
+                </div>
+            </button>
+        </div>
+
+        <!-- Detail DANA -->
+        <div id="danaDetail" class="payment-detail">
+            <h4>Transfer ke DANA</h4>
+            <p>Nomor DANA:</p>
+            <div class="dana-number" id="danaNumber">081230637481</div>
+            <button class="copy-btn" onclick="copyDana()">📋 Salin Nomor</button>
+
+            <div class="payment-note">
+                💡 Setelah transfer, kirim bukti ke WhatsApp
             </div>
 
-            <div id="paymentMethods" class="payment-methods">
-                <button class="payment-btn" onclick="showPaymentDetail('dana')">
-                    <div class="payment-icon">D</div>
-                    <div class="payment-info">
-                        <h4>DANA</h4>
-                        <p>Transfer via DANA</p>
-                    </div>
-                </button>
-                <button class="payment-btn" onclick="showPaymentDetail('qris')">
-                    <div class="payment-icon">Q</div>
-                    <div class="payment-info">
-                        <h4>QRIS</h4>
-                        <p>Scan QRIS untuk bayar</p>
-                    </div>
-                </button>
+            <a href="https://wa.me/6285126053305?text=Halo%20Admin,%20saya%20ingin%20pembayaran%20via%20DANA%20untuk%20produk%20*NAMA_PRODUK*" target="_blank" class="whatsapp-btn">
+                💬 Konfirmasi via WhatsApp
+            </a>
+        </div>
+
+        <!-- Detail QRIS -->
+        <div id="qrisDetail" class="payment-detail">
+            <h4>Scan QRIS</h4>
+            <div class="qris-image">
+                <img src="qris.png" alt="QRIS Code">
             </div>
 
-            <div id="danaDetail" class="payment-detail">
-                <h4>Transfer ke DANA</h4>
-                <p>Nomor DANA:</p>
-                <div class="dana-number" id="danaNumber">081230637481</div>
-                <button class="copy-btn" onclick="copyDana()">📋 Salin Nomor</button>
-                <div class="payment-note">
-                    💡 Setelah transfer, screenshot bukti pembayaran dan kirim ke admin WhatsApp untuk konfirmasi
-                </div>
-                <a href="https://wa.me/6285126053305?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20untuk%20produk%20*NAMA_PRODUK*" target="_blank" class="whatsapp-btn">
-                    💬 Sudah Transaksi? Hubungi Kami
-                </a>
+            <button class="copy-btn" onclick="downloadQris()">
+                📥 Download QRIS
+            </button>
+
+            <div class="payment-note">
+                💡 Setelah bayar, kirim bukti ke WhatsApp
             </div>
 
-            <div id="qrisDetail" class="payment-detail">
-                <h4>Scan QRIS</h4>
-                <div class="qris-image">
-                    <img id="qrisImg" src="qris.png" alt="QRIS Code" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22250%22 height=%22250%22%3E%3Crect fill=%22%23E91E63%22 width=%22250%22 height=%22250%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22 font-size=%2220%22%3EQRIS CODE%3C/text%3E%3C/svg%3E'">
-                </div>
-                <button class="copy-btn" onclick="downloadQris()" style="background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);">
-                    📥 Download QRIS
-                </button>
-                <div class="payment-note">
-                    💡 Scan QR code menggunakan aplikasi e-wallet Anda, kemudian screenshot bukti pembayaran dan kirim ke admin WhatsApp
-                </div>
-                <a href="https://wa.me/6285126053305?text=Halo%20Admin,%20saya%20sudah%20melakukan%20pembayaran%20via%20QRIS%20untuk%20produk%20*NAMA_PRODUK*" target="_blank" class="whatsapp-btn">
-                    💬 Sudah Transaksi? Hubungi Kami
-                </a>
-            </div>
+            <a href="https://wa.me/6285126053305?text=Halo%20Admin,%20saya%20ingin%20pembayaran%20via%20QRIS%20untuk%20produk%20*NAMA_PRODUK*" target="_blank" class="whatsapp-btn">
+                💬 Konfirmasi via WhatsApp
+            </a>
         </div>
     </div>
+</div>
 
     <!-- Floating Chat Owner Button -->
     <div class="chat-owner-container">

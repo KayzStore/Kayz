@@ -3,7 +3,7 @@
 // ========================================
 const WHATSAPP_NUMBER = '6285126053305'; // Format: 62xxxxxxxxxx (pakai kode negara 62, tanpa +)
 const DANA_NUMBER = '081230637481'; // Format: 08xxxxxxxxxx
-
+ 
 // Tab Switching Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -55,14 +55,13 @@ function closePaymentModal() {
     document.body.style.overflow = 'auto';
 }
 
-function showPaymentDetail(method) {
-    document.getElementById('paymentMethods').style.display = 'none';
-    
-    if (method === 'dana') {
-        document.getElementById('danaDetail').classList.add('active');
-    } else if (method === 'qris') {
-        document.getElementById('qrisDetail').classList.add('active');
-    }
+function showPaymentMethods() {
+    document.getElementById('paymentMethods').style.display = 'grid';
+    document.getElementById('paymentTitle').style.display = 'block';
+
+    // sembunyikan detail pembayaran
+    document.getElementById('danaDetail').classList.remove('active');
+    document.getElementById('qrisDetail').classList.remove('active');
 }
 
 function copyDana() {
