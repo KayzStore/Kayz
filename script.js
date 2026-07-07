@@ -3,6 +3,12 @@
 // ========================================
 const WHATSAPP_NUMBER = '6285126053305'; // Format: 62xxxxxxxxxx (pakai kode negara 62, tanpa +)
 const DANA_NUMBER = '081230637481'; // Format: 08xxxxxxxxxx
+const WHATSAPP_GROUP_LINK = 'https://chat.whatsapp.com/I9DUXOoc1FvH24FId8faBN?s=cl&p=a&mlu=0&ilr=0';
+
+// Buka link grup WhatsApp saat produk di klik
+function openWhatsAppGroup() {
+    window.open(WHATSAPP_GROUP_LINK, '_blank');
+}
  
 // Tab Switching Functionality
 document.addEventListener('DOMContentLoaded', function() {
