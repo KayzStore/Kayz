@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Animated Background Particles -->
@@ -24,7 +24,7 @@
         <div class="particle"></div>
     </div>
 
-    <!-- Navigation --> 
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
@@ -49,6 +49,7 @@
                     <li><a href="#kontak">Kontak</a></li>
                 </ul>
                 <a href="#produk" class="btn-primary">Buka Pesanan</a>
+                <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
             </div>
         </div>
     </nav>
@@ -67,10 +68,18 @@
                     Solusi Digital Store <span class="gradient-text">Terbaik untuk Anda</span>
                 </h1>
                 <p class="hero-description">
-                    Nikmati berbagai layanan premium mulai dari hosting, bot WhatsApp, 
+                    Nikmati berbagai layanan premium mulai dari hosting, bot WhatsApp,
                     hingga aplikasi premium dengan harga terjangkau dan support 24/7
                 </p>
-                <a href="#produk" class="btn-hero">Lihat Produk</a>
+                <div class="hero-actions">
+                    <a href="#produk" class="btn-hero">Lihat Produk</a>
+                    <a href="https://wa.me/6285126053305" target="_blank" class="btn-hero-outline">Chat Admin</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat"><span class="hero-stat-num">22+</span><span class="hero-stat-label">Kategori Produk</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num">24/7</span><span class="hero-stat-label">Support Aktif</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Garansi Produk</span></div>
+                </div>
             </div>
         </div>
     </section>
@@ -135,440 +144,18 @@
                 <p>Pilih kategori produk yang Anda butuhkan</p>
             </div>
             <div class="package-tabs">
-                <button class="tab-btn active" data-tab="panel">Panel Hosting</button>
-                <button class="tab-btn" data-tab="jasaedit">Jasa Edit AM</button>
-                <button class="tab-btn" data-tab="jasahd">Jasa HD</button>
-                <button class="tab-btn" data-tab="nomer">Nomer Kosong WA</button>
-                <button class="tab-btn" data-tab="jadibot">Jadibot WA</button>
-                <button class="tab-btn" data-tab="sewabot">Sewa Bot WA</button>
+                <button class="tab-btn active" data-tab="panelbot">Panel &amp; Bot WA</button>
                 <button class="tab-btn" data-tab="aplikasi">Aplikasi Premium</button>
+                <button class="tab-btn" data-tab="jasa">Jasa Layanan</button>
+                <button class="tab-btn" data-tab="sosmed">Sosial Media</button>
+                <button class="tab-btn" data-tab="lainnya">Lainnya</button>
             </div>
 
-            <!-- Panel Hosting Content -->
-            <div id="content-panel" class="tab-content active">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Panel Hosting Pterodactyl Private</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 3GB</h4>
-                                    <p>Rp 4.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 4GB</h4>
-                                    <p>Rp 6.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 5GB</h4>
-                                    <p>Rp 7.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 6GB</h4>
-                                    <p>Rp 9.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 7GB</h4>
-                                    <p>Rp 10.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 8GB</h4>
-                                    <p>Rp 12.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 9GB</h4>
-                                    <p>Rp 13.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 10GB</h4>
-                                    <p>Rp 15.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Jasa Edit AM Content -->
-            <div id="content-jasaedit" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Jasa Edit AM ( Preset Dari Lu )</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Konsep Sendiri</h4>
-                                    <p>Rp 2.000 - 5.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Konsep Collab</h4>
-                                    <p>Rp 4.000 - 10.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Jasa HD Content -->
-            <div id="content-jasahd" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Jasa HD</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Foto</h4>
-                                    <p>500P</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Super HD</h4>
-                                    <p>1.000P</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Video</h4>
-                                    <p>1.000P</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Nomer Kosong WA Content -->
-            <div id="content-nomer" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Nomer Kosong WhatsApp</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>1 Nomer</h4>
-                                    <p>Rp 5.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>2 Nomer</h4>
-                                    <p>Rp 9.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Jadibot WA Content -->
-            <div id="content-jadibot" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Jadibot WhatsApp</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>15 Hari</h4>
-                                    <p>Rp 10.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>30 Hari</h4>
-                                    <p>Rp 18.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sewa Bot WA Content -->
-            <div id="content-sewabot" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Sewa Bot WhatsApp</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>1 Hari</h4>
-                                    <p>Rp 1.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>10 Hari</h4>
-                                    <p>Rp 7.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>20 Hari</h4>
-                                    <p>Rp 11.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>30 Hari</h4>
-                                    <p>Rp 15.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Aplikasi Premium Content -->
-            <div id="content-aplikasi" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Aplikasi Premium</h3>
-                        </div>
-                        <div class="product-list" style="grid-template-columns: 1fr 1fr;">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>AM</h4>
-                                    <p>Mulai Rp 2.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>App Musik</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>BStation</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Canva</h4>
-                                    <p>Mulai Rp 1.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>CapCut</h4>
-                                    <p>Mulai Rp 10.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>ChatGPT</h4>
-                                    <p>Mulai Rp 12.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Fizzo</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Gemini</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Get Contact</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Ibis Paint</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>iQiyi</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Lightroom</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Loklok</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>MangoTV</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Meitu</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Melolo</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Microsoft</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Netflix</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Picsart</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Prime</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Remini</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Spotify</h4>
-                                    <p>Mulai Rp 17.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Vidio</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Viu</h4>
-                                    <p>Mulai Rp 2.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>VPN</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>WeTV</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Wibuku</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Wink</h4>
-                                    <p>Mulai Rp 3.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>YouTube</h4>
-                                    <p>Mulai Rp 2.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Zoom</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="content-panelbot" class="tab-content active"><div class="packages-grid"><div class="package-card"><div class="package-header"><h3>PANEL PTERODACTYL</h3></div><div class="product-list"><a class="product-item product-link" href="https://panel-kalkulator-kayz.vercel.app" target="_blank" rel="noopener"><div class="product-info"><h4>bot wa</h4><p>https://panel-kalkulator-kayz.vercel.app</p></div><span class="product-arrow">↗</span></a></div><div class="product-notes"><h5>Catatan</h5><ul><li>full garansi</li><li>anti maling sc</li><li>vps legal bisa di perpanjang</li></ul></div></div><div class="package-card"><div class="package-header"><h3>JADIBOT WHATSAPP</h3></div><div class="product-list"><div class="product-group-label">jadibot</div><div class="product-item" data-name="JADIBOT WHATSAPP - 15 hari" data-price="10.000"><div class="product-info"><h4>15 hari</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="JADIBOT WHATSAPP - 30 hari" data-price="18.000"><div class="product-info"><h4>30 hari</h4><p>Rp 18.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>full garansi jika bot bermasalah</li><li>nomermu jadi owner bot</li><li>bisa di sewakan</li></ul></div></div><div class="package-card"><div class="package-header"><h3>SEWABOT WHATSAPP</h3></div><div class="product-list"><div class="product-group-label">sewabot</div><div class="product-item" data-name="SEWABOT WHATSAPP - 1 hari" data-price="1.000"><div class="product-info"><h4>1 hari</h4><p>Rp 1.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="SEWABOT WHATSAPP - 10 hari" data-price="7.000"><div class="product-info"><h4>10 hari</h4><p>Rp 7.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="SEWABOT WHATSAPP - 20 hari" data-price="11.000"><div class="product-info"><h4>20 hari</h4><p>Rp 11.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="SEWABOT WHATSAPP - 30 hari" data-price="15.000"><div class="product-info"><h4>30 hari</h4><p>Rp 15.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>full garansi jika bot bermasalah</li><li>fitur 1000+</li><li>pindah gc free 1x ( kedepannya kena pajak 1k )</li></ul></div></div><div class="package-card"><div class="package-header"><h3>INSTALL PANEL PTERODACTYL</h3></div><div class="product-list"><div class="product-group-label">minimal vps kuat buat install panel</div><div class="product-item" data-name="INSTALL PANEL PTERODACTYL - domain dariku 5k" data-price="Tanya admin"><div class="product-info"><h4>domain dariku 5k</h4></div><span class="product-arrow">→</span></div><div class="product-item" data-name="INSTALL PANEL PTERODACTYL - domain darimu 4k" data-price="Tanya admin"><div class="product-info"><h4>domain darimu 4k</h4></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>proses cepat</li><li>proses sudah selesai silahkan ubah data vps/ga dirubah gamasalah soalnya aku ga otak atik</li></ul></div></div><div class="package-card"><div class="package-header"><h3>JASA SCRIPT BOT WA</h3></div><div class="product-list"><div class="product-group-label">penambahan fitur</div><div class="product-item" data-name="JASA SCRIPT BOT WA - 1 fitur" data-price="500 - 1.500"><div class="product-info"><h4>1 fitur</h4><p>Rp 500 - 1.500</p></div><span class="product-arrow">→</span></div><div class="product-tag">☆ full garansi 10 hari</div><div class="product-group-label">penghapusan auto join channel</div><div class="product-item" data-name="JASA SCRIPT BOT WA - dari script" data-price="1.000"><div class="product-info"><h4>dari script</h4><p>Rp 1.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="JASA SCRIPT BOT WA - dari baileys" data-price="5.000"><div class="product-info"><h4>dari baileys</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-tag">☆ script wajib no enc</div></div><div class="product-notes"><h5>Catatan</h5><ul><li>cara tau sc no enc tanya admin, jasa 500p untuk pengecekan script nya</li><li>ku refund jika tidak bisa digunakan fiturnya</li></ul></div></div><div class="package-card"><div class="package-header"><h3>JASA KICK MEMBER GROUP WHATSAPP</h3></div><div class="product-list"><div class="product-group-label">kickall</div><div class="product-item" data-name="JASA KICK MEMBER GROUP WHATSAPP - 50 mem" data-price="500p"><div class="product-info"><h4>50 mem</h4><p>Rp 500p</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="JASA KICK MEMBER GROUP WHATSAPP - 100 mem" data-price="1.000"><div class="product-info"><h4>100 mem</h4><p>Rp 1.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="JASA KICK MEMBER GROUP WHATSAPP - seterusnya" data-price="Tanya admin"><div class="product-info"><h4>seterusnya</h4></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>nomer bot jadiin admin langsung di proses kickall ( dikirim sama admin )</li><li>tidak perlu cape cape kick manual</li></ul></div></div></div></div>
+            <div id="content-aplikasi" class="tab-content"><div class="packages-grid"><div class="package-card"><div class="package-header"><h3>CAPCUT PREMIUM</h3></div><div class="product-list"><div class="product-group-label">private standar</div><div class="product-item" data-name="CAPCUT PREMIUM - 1 bulan" data-price="25.000"><div class="product-info"><h4>1 bulan</h4><p>Rp 25.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">private pro</div><div class="product-item" data-name="CAPCUT PREMIUM - 7 hari" data-price="10.000"><div class="product-info"><h4>7 hari</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="CAPCUT PREMIUM - 1 bulan" data-price="35.000"><div class="product-info"><h4>1 bulan</h4><p>Rp 35.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>full garansi backfree</li><li>private limit login 2 device</li><li>private limit login, nogar karena melebihi batas login</li></ul></div></div><div class="package-card"><div class="package-header"><h3>CANVA</h3></div><div class="product-list"><div class="product-group-label">member design</div><div class="product-item" data-name="CANVA - 1 bulan" data-price="1.500"><div class="product-info"><h4>1 bulan</h4><p>Rp 1.500</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="CANVA - 2 bulan renew" data-price="2.800"><div class="product-info"><h4>2 bulan renew</h4><p>Rp 2.800</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="CANVA - 1 tahun renew" data-price="8.000"><div class="product-info"><h4>1 tahun renew</h4><p>Rp 8.000</p></div><span class="product-arrow">→</span></div><div class="product-tag">☆ full garansi</div><div class="product-group-label">education</div><div class="product-item" data-name="CANVA - lifetime garansi 6 bulan" data-price="10.000"><div class="product-info"><h4>lifetime garansi 6 bulan</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="CANVA - lifetime garansi 2 thn" data-price="15.000"><div class="product-info"><h4>lifetime garansi 2 thn</h4><p>Rp 15.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>via invite email / link</li><li>renew = perpanjangan</li><li>education lifetime tidak perlu renew</li></ul></div></div><div class="package-card"><div class="package-header"><h3>YOUTUBE</h3></div><div class="product-list"><div class="product-group-label">family plan</div><div class="product-item" data-name="YOUTUBE - 1 bulan" data-price="2.000"><div class="product-info"><h4>1 bulan</h4><p>Rp 2.000</p></div><span class="product-arrow">→</span></div><div class="product-tag">☆ via email buyer</div></div><div class="product-notes"><h5>Catatan</h5><ul><li>garansi 20 hari</li><li>include yt music</li><li>only region Indonesia</li></ul></div></div><div class="package-card"><div class="package-header"><h3>ALIGHT MOTION</h3></div><div class="product-list"><div class="product-group-label">private</div><div class="product-item" data-name="ALIGHT MOTION - 1 tahun akun seller" data-price="2.000"><div class="product-info"><h4>1 tahun akun seller</h4><p>Rp 2.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="ALIGHT MOTION - 1 tahun akun mu" data-price="5.000"><div class="product-info"><h4>1 tahun akun mu</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>support ios &amp; andro</li><li>garansi 6 bulan</li><li>end bill januari 2027</li></ul></div></div><div class="package-card"><div class="package-header"><h3>WINK</h3></div><div class="product-list"><div class="product-group-label">andro private</div><div class="product-item" data-name="WINK - 7 hari VIP" data-price="4.000"><div class="product-info"><h4>7 hari VIP</h4><p>Rp 4.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="WINK - 7 hari VIP+" data-price="5.000"><div class="product-info"><h4>7 hari VIP+</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="WINK - 7 hari acc b" data-price="3.000 (VIP/VIP+)"><div class="product-info"><h4>7 hari acc b</h4><p>Rp 3.000 (VIP/VIP+)</p></div><span class="product-arrow">→</span></div><div class="product-group-label">ios/andro private</div><div class="product-item" data-name="WINK - 7 hari VIP+" data-price="6.000"><div class="product-info"><h4>7 hari VIP+</h4><p>Rp 6.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">unli</div><div class="product-item" data-name="WINK - selamanya" data-price="10.000"><div class="product-info"><h4>selamanya</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-tag">☆ metode</div></div><div class="product-notes"><h5>Catatan</h5><ul><li>support andro &amp; ios</li><li>full garansi</li></ul></div></div><div class="package-card"><div class="package-header"><h3>VIU+</h3></div><div class="product-list"><div class="product-group-label">private</div><div class="product-item" data-name="VIU+ - 1 tahun : 2.000" data-price="Tanya admin"><div class="product-info"><h4>1 tahun : 2.000</h4></div><span class="product-arrow">→</span></div><div class="product-item" data-name="VIU+ - lifetime : 10.000" data-price="Tanya admin"><div class="product-info"><h4>lifetime : 10.000</h4></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>garansi 6 bulan</li><li>limit login 2 device</li><li>support all device</li><li>private bisa di sharing</li></ul></div></div><div class="package-card"><div class="package-header"><h3>DISNEY PREMIUM</h3></div><div class="product-list"><div class="product-group-label">sharing</div><div class="product-item" data-name="DISNEY PREMIUM - 1 hari" data-price="4.000"><div class="product-info"><h4>1 hari</h4><p>Rp 4.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="DISNEY PREMIUM - 3 hari" data-price="6.000"><div class="product-info"><h4>3 hari</h4><p>Rp 6.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="DISNEY PREMIUM - 1 bulan 10u" data-price="13.000"><div class="product-info"><h4>1 bulan 10u</h4><p>Rp 13.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>plan premium UHD 4K</li><li>login sign code</li><li>support all dev</li><li>garansi 25 hari</li></ul></div></div></div></div>
+            <div id="content-jasa" class="tab-content"><div class="packages-grid"><div class="package-card"><div class="package-header"><h3>JASA EDIT AM</h3></div><div class="product-list"><div class="product-group-label">preset dari mu</div><div class="product-item" data-name="JASA EDIT AM - jj sendiri" data-price="2.000 - 5.000"><div class="product-info"><h4>jj sendiri</h4><p>Rp 2.000 - 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="JASA EDIT AM - jj collab" data-price="4.000 - 10.000"><div class="product-info"><h4>jj collab</h4><p>Rp 4.000 - 10.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>pengerjaan selesai sekitar 10-30 menit tergantung kesibukan admin</li><li>preset darimu ( ambil di tt )</li><li>dapat free hd video</li></ul></div></div><div class="package-card"><div class="package-header"><h3>JASA HDIN</h3></div><div class="product-list"><div class="product-group-label">foto</div><div class="product-item" data-name="JASA HDIN - hd biasa" data-price="500"><div class="product-info"><h4>hd biasa</h4><p>Rp 500</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="JASA HDIN - super hd" data-price="1.000"><div class="product-info"><h4>super hd</h4><p>Rp 1.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">video</div><div class="product-item" data-name="JASA HDIN - hd biasa" data-price="1.000"><div class="product-info"><h4>hd biasa</h4><p>Rp 1.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>pengerjaan selesai sekitar 1-10 menit tergantung kesibukan admin</li></ul></div></div><div class="package-card"><div class="package-header"><h3>JASA SHARE LINK GROUP WHATSAPP</h3></div><div class="product-list"><div class="product-group-label">group biasa/ngobrol</div><div class="product-item" data-name="JASA SHARE LINK GROUP WHATSAPP - 8 member" data-price="1.000"><div class="product-info"><h4>8 member</h4><p>Rp 1.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="JASA SHARE LINK GROUP WHATSAPP - 16 member" data-price="2.000"><div class="product-info"><h4>16 member</h4><p>Rp 2.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">group jb/store/freelance</div><div class="product-item" data-name="JASA SHARE LINK GROUP WHATSAPP - kosong" data-price="Tanya admin"><div class="product-info"><h4>kosong</h4></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>proses bertahap</li><li>proses selalu di kabarin</li><li>harus jadiin admin baru ku share ( ragu ga usah beli )</li><li>tidak capai target ku reffund</li></ul></div></div><div class="package-card"><div class="package-header"><h3>BOT CONFESS</h3></div><div class="product-list"><div class="product-group-label">confess</div><div class="product-item" data-name="BOT CONFESS - 1 jam" data-price="1.000"><div class="product-info"><h4>1 jam</h4><p>Rp 1.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="BOT CONFESS - 1 hari" data-price="3.000"><div class="product-info"><h4>1 hari</h4><p>Rp 3.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="BOT CONFESS - sampai di blok" data-price="5.000"><div class="product-info"><h4>sampai di blok</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>sebelum order tanya dulu ke admin</li><li>anti ribet</li><li>full privasi</li></ul></div></div></div></div>
+            <div id="content-sosmed" class="tab-content"><div class="packages-grid"><div class="package-card"><div class="package-header"><h3>KEBUTUHAN SOSIAL WHATSAPP</h3></div><div class="product-list"><div class="product-group-label">Followers Channel WhatsApp</div><div class="product-item" data-name="KEBUTUHAN SOSIAL WHATSAPP - 50" data-price="5.000"><div class="product-info"><h4>50</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL WHATSAPP - 100" data-price="8.000"><div class="product-info"><h4>100</h4><p>Rp 8.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL WHATSAPP - 300" data-price="16.000"><div class="product-info"><h4>300</h4><p>Rp 16.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL WHATSAPP - 500" data-price="25.000"><div class="product-info"><h4>500</h4><p>Rp 25.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL WHATSAPP - 700" data-price="33.000"><div class="product-info"><h4>700</h4><p>Rp 33.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL WHATSAPP - 900" data-price="40.000"><div class="product-info"><h4>900</h4><p>Rp 40.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL WHATSAPP - 1.000" data-price="50.000"><div class="product-info"><h4>1.000</h4><p>Rp 50.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">React Channel</div><div class="product-item" data-name="KEBUTUHAN SOSIAL WHATSAPP - Tanya admin untuk list &amp; harga." data-price="Tanya admin"><div class="product-info"><h4>Tanya admin untuk list &amp; harga.</h4></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>Channel tidak privat.</li><li>Proses bertahap.</li><li>Harga dapat berubah sewaktu-waktu.</li><li>Bisa request jumlah di luar list.</li><li>Chat admin terlebih dahulu sebelum order untuk konfirmasi harga.</li></ul></div></div><div class="package-card"><div class="package-header"><h3>KEBUTUHAN SOSIAL TIKTOK</h3></div><div class="product-list"><div class="product-group-label">Followers TikTok</div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 100" data-price="5.000"><div class="product-info"><h4>100</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 300" data-price="10.000"><div class="product-info"><h4>300</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 500" data-price="15.000"><div class="product-info"><h4>500</h4><p>Rp 15.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 800" data-price="20.000"><div class="product-info"><h4>800</h4><p>Rp 20.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">Followers TikTok Indonesia</div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 100" data-price="12.000"><div class="product-info"><h4>100</h4><p>Rp 12.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 300" data-price="23.000"><div class="product-info"><h4>300</h4><p>Rp 23.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 500" data-price="35.000"><div class="product-info"><h4>500</h4><p>Rp 35.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 800" data-price="55.000"><div class="product-info"><h4>800</h4><p>Rp 55.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">Followers TikTok Indonesia High Quality</div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 100" data-price="16.000"><div class="product-info"><h4>100</h4><p>Rp 16.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 300" data-price="35.000"><div class="product-info"><h4>300</h4><p>Rp 35.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 500" data-price="55.000"><div class="product-info"><h4>500</h4><p>Rp 55.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 800" data-price="75.000"><div class="product-info"><h4>800</h4><p>Rp 75.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">Like TikTok ( Refill 7 Hari)</div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 100" data-price="3.000"><div class="product-info"><h4>100</h4><p>Rp 3.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 500" data-price="5.000"><div class="product-info"><h4>500</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 1.000" data-price="10.000"><div class="product-info"><h4>1.000</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 2.000" data-price="15.000"><div class="product-info"><h4>2.000</h4><p>Rp 15.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">View TikTok</div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 1.000" data-price="2.000"><div class="product-info"><h4>1.000</h4><p>Rp 2.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 5.000" data-price="5.000"><div class="product-info"><h4>5.000</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 8.000" data-price="7.000"><div class="product-info"><h4>8.000</h4><p>Rp 7.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL TIKTOK - 10.000" data-price="9.000"><div class="product-info"><h4>10.000</h4><p>Rp 9.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>Akun tidak privat.</li><li>Proses bertahap.</li><li>Harga dapat berubah sewaktu-waktu.</li><li>Bisa request jumlah di luar list.</li><li>Chat admin terlebih dahulu sebelum order untuk konfirmasi harga.</li></ul></div></div><div class="package-card"><div class="package-header"><h3>KEBUTUHAN SOSIAL INSTAGRAM</h3></div><div class="product-list"><div class="product-group-label">Followers Instagram</div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 100" data-price="5.000"><div class="product-info"><h4>100</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 300" data-price="10.000"><div class="product-info"><h4>300</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 500" data-price="15.000"><div class="product-info"><h4>500</h4><p>Rp 15.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 800" data-price="20.000"><div class="product-info"><h4>800</h4><p>Rp 20.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 1.000 + 1.000 View" data-price="26.000"><div class="product-info"><h4>1.000 + 1.000 View</h4><p>Rp 26.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">Followers Instagram Indonesia</div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 100" data-price="10.000"><div class="product-info"><h4>100</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 300" data-price="16.000"><div class="product-info"><h4>300</h4><p>Rp 16.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 500" data-price="29.000"><div class="product-info"><h4>500</h4><p>Rp 29.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 800" data-price="35.000"><div class="product-info"><h4>800</h4><p>Rp 35.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 1.000 + 1.000 View" data-price="45.000"><div class="product-info"><h4>1.000 + 1.000 View</h4><p>Rp 45.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">Like Instagram</div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 100" data-price="3.000"><div class="product-info"><h4>100</h4><p>Rp 3.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 500" data-price="8.000"><div class="product-info"><h4>500</h4><p>Rp 8.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 1.000" data-price="13.000"><div class="product-info"><h4>1.000</h4><p>Rp 13.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 2.000" data-price="20.000"><div class="product-info"><h4>2.000</h4><p>Rp 20.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">Like Instagram Indonesia</div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 100" data-price="5.000"><div class="product-info"><h4>100</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 200" data-price="6.000"><div class="product-info"><h4>200</h4><p>Rp 6.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 300" data-price="7.000"><div class="product-info"><h4>300</h4><p>Rp 7.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 500" data-price="10.000"><div class="product-info"><h4>500</h4><p>Rp 10.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 1.000" data-price="18.000"><div class="product-info"><h4>1.000</h4><p>Rp 18.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">Komentar Instagram</div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 10" data-price="2.000"><div class="product-info"><h4>10</h4><p>Rp 2.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 20" data-price="3.000"><div class="product-info"><h4>20</h4><p>Rp 3.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 30" data-price="4.000"><div class="product-info"><h4>30</h4><p>Rp 4.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 50" data-price="5.000"><div class="product-info"><h4>50</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-group-label">View Instagram</div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 1.000" data-price="2.000"><div class="product-info"><h4>1.000</h4><p>Rp 2.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 5.000" data-price="5.000"><div class="product-info"><h4>5.000</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 8.000" data-price="7.000"><div class="product-info"><h4>8.000</h4><p>Rp 7.000</p></div><span class="product-arrow">→</span></div><div class="product-item" data-name="KEBUTUHAN SOSIAL INSTAGRAM - 10.000" data-price="9.000"><div class="product-info"><h4>10.000</h4><p>Rp 9.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>Akun tidak privat.</li><li>Proses bertahap.</li><li>Harga dapat berubah sewaktu-waktu.</li><li>Bisa request jumlah di luar list.</li><li>Chat admin terlebih dahulu sebelum order untuk konfirmasi harga.</li></ul></div></div></div></div>
+            <div id="content-lainnya" class="tab-content"><div class="packages-grid"><div class="package-card"><div class="package-header"><h3>NOKOS</h3></div><div class="product-list"><div class="product-group-label">indonesia</div><div class="product-item" data-name="NOKOS - whatsapp" data-price="5.000"><div class="product-info"><h4>whatsapp</h4><p>Rp 5.000</p></div><span class="product-arrow">→</span></div></div><div class="product-notes"><h5>Catatan</h5><ul><li>garansi saat login *WAJIB RECORD*</li><li>otp fast</li><li>kode cuman 1x</li></ul></div></div><div class="package-card"><div class="package-header"><h3>apk premium lainnya ada malas masukin list chat pribadi 6285126053305</h3></div><div class="product-list"><p class="product-empty">Tanya admin langsung untuk detail produk ini.</p></div></div></div></div>
         </div>
     </section>
 
@@ -586,7 +173,7 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Pilih produk yang Anda inginkan, kemudian pilih metode pembayaran DANA atau QRIS. Setelah transfer, konfirmasi ke admin untuk proses lebih lanjut.</p>
+                        <p>Pilih produk yang Anda inginkan, lalu klik untuk menghubungi admin via WhatsApp. Admin akan membantu proses pembayaran dan konfirmasi.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -604,7 +191,16 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Ya, semua produk kami bergaransi. Jika ada masalah, hubungi admin kami untuk mendapatkan bantuan atau penggantian.</p>
+                        <p>Ya, sebagian besar produk kami bergaransi sesuai ketentuan masing-masing kategori. Cek catatan pada tiap produk atau tanyakan langsung ke admin.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah harga bisa berubah?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Harga dapat berubah sewaktu-waktu tergantung produk, terutama untuk layanan sosial media. Konfirmasi harga terbaru ke admin sebelum order.</p>
                     </div>
                 </div>
             </div>
@@ -643,13 +239,11 @@
                 <div class="footer-social">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <a href="https://chat.whatsapp.com/I9DUXOoc1FvH24FId8faBN?s=cl&p=a&mlu=0&ilr=0"
-   target="_blank"
-   aria-label="WhatsApp Group">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
-    </svg>
-</a>
+                        <a href="https://chat.whatsapp.com/I9DUXOoc1FvH24FId8faBN?s=cl&p=a&mlu=0&ilr=0" target="_blank" aria-label="WhatsApp Group">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+                            </svg>
+                        </a>
                         <a href="https://whatsapp.com/channel/0029Vb7Em7NJf05UUeH4sx1y" target="_blank" aria-label="WhatsApp Channel">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.99.588 1.945.94 3.14.94 3.181 0 5.767-2.587 5.768-5.766.001-3.187-2.567-5.782-5.759-5.782zm3.397 8.24c-.144.407-.834.834-1.163.882-.298.043-.674.061-1.086-.068-.25-.079-.573-.185-.985-.362-1.733-.749-2.865-2.492-2.951-2.607-.086-.116-.706-.938-.706-1.79 0-.851.446-1.269.604-1.443.159-.174.346-.217.462-.217.116 0 .231.001.332.006.106.005.249-.04.39.298.144.347.489 1.198.531 1.285.043.087.072.19.014.306-.058.116-.086.188-.173.29-.086.101-.181.226-.259.303-.086.087-.176.181-.076.354.101.174.448.74.962 1.198.66.589 1.217.771 1.39.858.174.087.276.072.377-.043.101-.116.435-.508.551-.682.116-.174.231-.145.39-.087.159.058 1.011.477 1.184.564.174.087.29.13.332.203.043.072.043.42-.101.827z"/>
@@ -676,25 +270,17 @@
 
     <!-- Payment Modal -->
     <div id="paymentModal" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closePaymentModal()">&times;</span>
-
-        <div class="modal-header">
-            <h3 id="productName">Nama Produk</h3>
-            <p>Silakan hubungi kami untuk melanjutkan</p>
+        <div class="modal-content">
+            <span class="modal-close" onclick="closePaymentModal()">&times;</span>
+            <div class="modal-header">
+                <h3 id="productName">Nama Produk</h3>
+                <p id="productPrice">Silakan hubungi kami untuk melanjutkan</p>
+            </div>
+            <a id="waModalBtn" href="https://wa.me/6285126053305" target="_blank" class="whatsapp-btn" style="margin-top:20px;">
+                💬 Hubungi via WhatsApp
+            </a>
         </div>
-
-        <!-- Tombol WhatsApp saja -->
-        <a
-            href="https://wa.me/6285126053305"
-            target="_blank"
-            class="whatsapp-btn"
-            style="margin-top:20px;"
-        >
-            💬 Hubungi via WhatsApp
-        </a>
-    </div> 
-</div>
+    </div>
 
     <!-- Floating Chat Owner Button -->
     <div class="chat-owner-container">

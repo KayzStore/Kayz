@@ -1,268 +1,91 @@
-// ========================================
-// KONFIGURASI NOMOR - UBAH DI SINI SAJA!
-// ========================================
-const WHATSAPP_NUMBER = '6285126053305'; // Format: 62xxxxxxxxxx (pakai kode negara 62, tanpa +)
-const DANA_NUMBER = '081230637481'; // Format: 08xxxxxxxxxx
-const WHATSAPP_GROUP_LINK = 'https://chat.whatsapp.com/I9DUXOoc1FvH24FId8faBN?s=cl&p=a&mlu=0&ilr=0';
+// ===== Kayz Store — script.js =====
 
-// Buka link grup WhatsApp saat produk di klik
-function openWhatsAppGroup() {
-    window.open(WHATSAPP_GROUP_LINK, '_blank');
-}
- 
-// Tab Switching Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetTab = button.getAttribute('data-tab');
-            
-            // Remove active class from all buttons and contents
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Add active class to clicked button and corresponding content
-            button.classList.add('active');
-            document.getElementById(`content-${targetTab}`).classList.add('active');
-        });
-    });
+// --- Product tabs ---
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+    btn.classList.add('active');
+    const content = document.getElementById('content-' + target);
+    if (content) content.classList.add('active');
+  });
 });
 
-// Payment Modal Functions
-let currentProduct = '';
-let currentPrice = '';
+// --- FAQ accordion ---
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
 
-function openPaymentModal(productName, price) {
-    currentProduct = productName;
-    currentPrice = price;
-    
-    document.getElementById('productName').textContent = productName;
-    document.getElementById('paymentModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-    
-    // Update WhatsApp links dengan nama produk
-    const encodedProduct = encodeURIComponent(productName);
-    const waMessage = `Halo%20Admin,%20saya%20ingin%20melakukan%20pembayaran%20untuk%20produk%20*${encodedProduct}*`;
-    const whatsappLinks = document.querySelectorAll('.whatsapp-btn');
-    whatsappLinks.forEach(link => {
-        link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
-    });
-    
-    // Reset payment details
-    document.getElementById('paymentMethods').style.display = 'grid';
-    document.getElementById('danaDetail').classList.remove('active');
-    document.getElementById('qrisDetail').classList.remove('active');
+// --- Payment / contact modal ---
+const paymentModal = document.getElementById('paymentModal');
+const productNameEl = document.getElementById('productName');
+const productPriceEl = document.getElementById('productPrice');
+const waModalBtn = document.getElementById('waModalBtn');
+const WA_NUMBER = '6285126053305';
+
+function openPaymentModal(name, price) {
+  productNameEl.textContent = name || 'Produk';
+  productPriceEl.textContent = price ? ('Rp ' + price) : 'Silakan hubungi kami untuk melanjutkan';
+  const message = encodeURIComponent(
+    'Halo min, saya mau tanya/order produk: ' + name + (price ? (' (Rp ' + price + ')') : '')
+  );
+  waModalBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + message;
+  paymentModal.classList.add('open');
 }
 
 function closePaymentModal() {
-    document.getElementById('paymentModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
+  paymentModal.classList.remove('open');
 }
 
-function showPaymentMethods() {
-    document.getElementById('paymentMethods').style.display = 'grid';
-    document.getElementById('paymentTitle').style.display = 'block';
+document.querySelectorAll('.product-item[data-name]').forEach(item => {
+  item.addEventListener('click', () => {
+    openPaymentModal(item.dataset.name, item.dataset.price);
+  });
+});
 
-    // sembunyikan tombol WA biar gak nutup
-    const waBtn = document.querySelector('.whatsapp-btn');
-    if (waBtn) waBtn.style.display = 'none';
+paymentModal.addEventListener('click', e => {
+  if (e.target === paymentModal) closePaymentModal();
+});
 
-    document.getElementById('danaDetail').classList.remove('active');
-    document.getElementById('qrisDetail').classList.remove('active');
+// expose for inline onclick on the close button
+window.closePaymentModal = closePaymentModal;
+
+// legacy helper kept for compatibility with any inline onclick="openWhatsAppGroup()"
+window.openWhatsAppGroup = function () {
+  window.open('https://wa.me/' + WA_NUMBER, '_blank');
+};
+
+// --- Floating chat toggle ---
+const chatContainer = document.querySelector('.chat-owner-container');
+const chatBtn = document.querySelector('.chat-owner-btn');
+if (chatBtn) {
+  chatBtn.addEventListener('click', () => {
+    chatContainer.classList.toggle('open');
+  });
 }
 
-function copyDana() {
-    // Fallback method untuk browser yang tidak support clipboard API
-    const textArea = document.createElement('textarea');
-    textArea.value = DANA_NUMBER;
-    textArea.style.position = 'fixed';
-    textArea.style.top = '0';
-    textArea.style.left = '0';
-    textArea.style.opacity = '0';
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
-    try {
-        const successful = document.execCommand('copy');
-        document.body.removeChild(textArea);
-        
-        if (successful) {
-            // Change button text temporarily
-            const btn = event.target;
-            const originalText = btn.textContent;
-            btn.textContent = '✅ Tersalin: ' + DANA_NUMBER;
-            btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
-            
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)';
-            }, 2000);
-        } else {
-            alert('Nomor DANA: ' + DANA_NUMBER + '\nSilakan salin manual');
-        }
-    } catch (err) {
-        document.body.removeChild(textArea);
-        alert('Nomor DANA: ' + DANA_NUMBER + '\nSilakan salin manual');
-    }
+// --- Mobile nav toggle ---
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    navMenu.style.flexDirection = 'column';
+    navMenu.style.position = 'absolute';
+    navMenu.style.top = '64px';
+    navMenu.style.left = '0';
+    navMenu.style.right = '0';
+    navMenu.style.background = '#0b0b14';
+    navMenu.style.padding = '20px 24px';
+    navMenu.style.gap = '16px';
+    navMenu.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+  });
 }
-
-function downloadQris() {
-    const qrisImg = document.getElementById('qrisImg');
-    const link = document.createElement('a');
-    link.href = qrisImg.src;
-    link.download = 'QRIS_KayzStore.png';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Change button text temporarily
-    const btn = event.target;
-    const originalText = btn.textContent;
-    btn.textContent = '✅ Berhasil Download!';
-    btn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
-    
-    setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = 'linear-gradient(135deg, #9C27B0 0%, #673AB7 100%)';
-    }, 2000);
-}
-
-// Close modal when clicking outside
-document.getElementById('paymentModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closePaymentModal();
-    }
-});
-
-// FAQ Toggle Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', () => {
-            // Close other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
-                }
-            });
-            
-            // Toggle current item
-            item.classList.toggle('active');
-        });
-    });
-});
-
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Navbar scroll effect
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 30px rgba(233, 30, 99, 0.15)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(233, 30, 99, 0.1)';
-    }
-    
-    lastScroll = currentScroll;
-});
-
-// Update WhatsApp link di footer saat halaman load
-document.addEventListener('DOMContentLoaded', function() {
-    const footerWaLink = document.querySelector('.footer-social a[aria-label="WhatsApp"]');
-    if (footerWaLink) {
-        footerWaLink.href = `https://wa.me/${WHATSAPP_NUMBER}`;
-    }
-});
-
-// ===== SCROLL TO TOP BUTTON =====
-// Buat button scroll to top
-const scrollTopBtn = document.createElement('button');
-scrollTopBtn.className = 'scroll-to-top';
-scrollTopBtn.innerHTML = '↑';
-scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
-document.body.appendChild(scrollTopBtn);
-
-// Show/hide button saat scroll
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.classList.add('show');
-    } else {
-        scrollTopBtn.classList.remove('show');
-    }
-});
-
-// Click handler untuk scroll ke atas
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// ===== CHAT OWNER BUTTON =====
-const chatOwnerBtn = document.querySelector('.chat-owner-btn');
-const chatOptions = document.querySelector('.chat-options');
-let chatOptionsOpen = false;
-
-chatOwnerBtn.addEventListener('click', () => {
-    chatOptionsOpen = !chatOptionsOpen;
-    if (chatOptionsOpen) {
-        chatOptions.classList.add('show');
-    } else {
-        chatOptions.classList.remove('show');
-    }
-});
-
-// Close chat options saat klik di luar
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.chat-owner-container')) {
-        chatOptions.classList.remove('show');
-        chatOptionsOpen = false;
-    }
-});
-
-// Add CSS for tab content
-const style = document.createElement('style');
-style.textContent = `
-    .tab-content {
-        display: none;
-    }
-    .tab-content.active {
-        display: block;
-        animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-`;
-document.head.appendChild(style);
