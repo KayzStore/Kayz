@@ -29,7 +29,7 @@ const paymentModal = document.getElementById('paymentModal');
 const productNameEl = document.getElementById('productName');
 const productPriceEl = document.getElementById('productPrice');
 const waModalBtn = document.getElementById('waModalBtn');
-const WA_NUMBER = '6285126053305';
+const WA_NUMBER = '6285142017734';
 
 function openPaymentModal(name, price) {
   productNameEl.textContent = name || 'Produk';
