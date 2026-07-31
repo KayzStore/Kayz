@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Animated Background Particles -->
@@ -24,7 +24,7 @@
         <div class="particle"></div>
     </div>
 
-    <!-- Navigation --> 
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
@@ -49,6 +49,7 @@
                     <li><a href="#kontak">Kontak</a></li>
                 </ul>
                 <a href="#produk" class="btn-primary">Buka Pesanan</a>
+                <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
             </div>
         </div>
     </nav>
@@ -67,10 +68,18 @@
                     Solusi Digital Store <span class="gradient-text">Terbaik untuk Anda</span>
                 </h1>
                 <p class="hero-description">
-                    Nikmati berbagai layanan premium mulai dari hosting, bot WhatsApp, 
+                    Nikmati berbagai layanan premium mulai dari hosting, bot WhatsApp,
                     hingga aplikasi premium dengan harga terjangkau dan support 24/7
                 </p>
-                <a href="#produk" class="btn-hero">Lihat Produk</a>
+                <div class="hero-actions">
+                    <a href="#produk" class="btn-hero">Lihat Produk</a>
+                    <a href="https://wa.me/6285126053305" target="_blank" class="btn-hero-outline" id="chatAdminBtn">Chat Admin</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat"><span class="hero-stat-num">22+</span><span class="hero-stat-label">Kategori Produk</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num">24/7</span><span class="hero-stat-label">Support Aktif</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Garansi Produk</span></div>
+                </div>
             </div>
         </div>
     </section>
@@ -134,441 +143,8 @@
                 <h2>Produk <span class="gradient-text">Kami</span></h2>
                 <p>Pilih kategori produk yang Anda butuhkan</p>
             </div>
-            <div class="package-tabs">
-                <button class="tab-btn active" data-tab="panel">Panel Hosting</button>
-                <button class="tab-btn" data-tab="jasaedit">Jasa Edit AM</button>
-                <button class="tab-btn" data-tab="jasahd">Jasa HD</button>
-                <button class="tab-btn" data-tab="nomer">Nomer Kosong WA</button>
-                <button class="tab-btn" data-tab="jadibot">Jadibot WA</button>
-                <button class="tab-btn" data-tab="sewabot">Sewa Bot WA</button>
-                <button class="tab-btn" data-tab="aplikasi">Aplikasi Premium</button>
-            </div>
-
-            <!-- Panel Hosting Content -->
-            <div id="content-panel" class="tab-content active">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Panel Hosting Pterodactyl Private</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 3GB</h4>
-                                    <p>Rp 4.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 4GB</h4>
-                                    <p>Rp 6.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 5GB</h4>
-                                    <p>Rp 7.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 6GB</h4>
-                                    <p>Rp 9.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 7GB</h4>
-                                    <p>Rp 10.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 8GB</h4>
-                                    <p>Rp 12.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 9GB</h4>
-                                    <p>Rp 13.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>RAM 10GB</h4>
-                                    <p>Rp 15.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Jasa Edit AM Content -->
-            <div id="content-jasaedit" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Jasa Edit AM ( Preset Dari Lu )</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Konsep Sendiri</h4>
-                                    <p>Rp 2.000 - 5.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Konsep Collab</h4>
-                                    <p>Rp 4.000 - 10.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Jasa HD Content -->
-            <div id="content-jasahd" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Jasa HD</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Foto</h4>
-                                    <p>500P</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Super HD</h4>
-                                    <p>1.000P</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Video</h4>
-                                    <p>1.000P</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Nomer Kosong WA Content -->
-            <div id="content-nomer" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Nomer Kosong WhatsApp</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>1 Nomer</h4>
-                                    <p>Rp 5.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>2 Nomer</h4>
-                                    <p>Rp 9.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Jadibot WA Content -->
-            <div id="content-jadibot" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Jadibot WhatsApp</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>15 Hari</h4>
-                                    <p>Rp 10.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>30 Hari</h4>
-                                    <p>Rp 18.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sewa Bot WA Content -->
-            <div id="content-sewabot" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Sewa Bot WhatsApp</h3>
-                        </div>
-                        <div class="product-list">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>1 Hari</h4>
-                                    <p>Rp 1.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>10 Hari</h4>
-                                    <p>Rp 7.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>20 Hari</h4>
-                                    <p>Rp 11.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>30 Hari</h4>
-                                    <p>Rp 15.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Aplikasi Premium Content -->
-            <div id="content-aplikasi" class="tab-content">
-                <div class="packages-grid">
-                    <div class="package-card">
-                        <div class="package-header">
-                            <h3>Aplikasi Premium</h3>
-                        </div>
-                        <div class="product-list" style="grid-template-columns: 1fr 1fr;">
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>AM</h4>
-                                    <p>Mulai Rp 2.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>App Musik</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>BStation</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Canva</h4>
-                                    <p>Mulai Rp 1.500</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>CapCut</h4>
-                                    <p>Mulai Rp 10.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>ChatGPT</h4>
-                                    <p>Mulai Rp 12.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Fizzo</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Gemini</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Get Contact</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Ibis Paint</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>iQiyi</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Lightroom</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Loklok</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>MangoTV</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Meitu</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Melolo</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Microsoft</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Netflix</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Picsart</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Prime</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Remini</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Spotify</h4>
-                                    <p>Mulai Rp 17.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Vidio</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Viu</h4>
-                                    <p>Mulai Rp 2.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>VPN</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>WeTV</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Wibuku</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Wink</h4>
-                                    <p>Mulai Rp 3.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>YouTube</h4>
-                                    <p>Mulai Rp 2.000</p>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                            <div class="product-item" onclick="openWhatsAppGroup()">
-                                <div class="product-info">
-                                    <h4>Zoom</h4>
-                                </div>
-                                <span class="product-arrow">→</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="package-tabs" id="packageTabs"></div>
+            <div id="packageContents"></div>
         </div>
     </section>
 
@@ -586,7 +162,7 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Pilih produk yang Anda inginkan, kemudian pilih metode pembayaran DANA atau QRIS. Setelah transfer, konfirmasi ke admin untuk proses lebih lanjut.</p>
+                        <p>Pilih produk yang Anda inginkan, lalu klik untuk menghubungi admin via WhatsApp. Admin akan membantu proses pembayaran dan konfirmasi.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -604,7 +180,16 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Ya, semua produk kami bergaransi. Jika ada masalah, hubungi admin kami untuk mendapatkan bantuan atau penggantian.</p>
+                        <p>Ya, sebagian besar produk kami bergaransi sesuai ketentuan masing-masing kategori. Cek catatan pada tiap produk atau tanyakan langsung ke admin.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah harga bisa berubah?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Harga dapat berubah sewaktu-waktu tergantung produk, terutama untuk layanan sosial media. Konfirmasi harga terbaru ke admin sebelum order.</p>
                     </div>
                 </div>
             </div>
@@ -643,24 +228,22 @@
                 <div class="footer-social">
                     <h4>Follow Us</h4>
                     <div class="social-icons">
-                        <a href="https://chat.whatsapp.com/I9DUXOoc1FvH24FId8faBN?s=cl&p=a&mlu=0&ilr=0"
-   target="_blank"
-   aria-label="WhatsApp Group">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
-    </svg>
-</a>
-                        <a href="https://whatsapp.com/channel/0029Vb7Em7NJf05UUeH4sx1y" target="_blank" aria-label="WhatsApp Channel">
+                        <a href="https://chat.whatsapp.com/I9DUXOoc1FvH24FId8faBN?s=cl&p=a&mlu=0&ilr=0" target="_blank" aria-label="WhatsApp Group" id="waGroupLink">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+                            </svg>
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029Vb7Em7NJf05UUeH4sx1y" target="_blank" aria-label="WhatsApp Channel" id="waChannelLink">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.99.588 1.945.94 3.14.94 3.181 0 5.767-2.587 5.768-5.766.001-3.187-2.567-5.782-5.759-5.782zm3.397 8.24c-.144.407-.834.834-1.163.882-.298.043-.674.061-1.086-.068-.25-.079-.573-.185-.985-.362-1.733-.749-2.865-2.492-2.951-2.607-.086-.116-.706-.938-.706-1.79 0-.851.446-1.269.604-1.443.159-.174.346-.217.462-.217.116 0 .231.001.332.006.106.005.249-.04.39.298.144.347.489 1.198.531 1.285.043.087.072.19.014.306-.058.116-.086.188-.173.29-.086.101-.181.226-.259.303-.086.087-.176.181-.076.354.101.174.448.74.962 1.198.66.589 1.217.771 1.39.858.174.087.276.072.377-.043.101-.116.435-.508.551-.682.116-.174.231-.145.39-.087.159.058 1.011.477 1.184.564.174.087.29.13.332.203.043.072.043.42-.101.827z"/>
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/kayz1y7?igsh=YW1jcndnd2J0ajhm" target="_blank" aria-label="Instagram">
+                        <a href="https://www.instagram.com/kayzsthah?igsh=YW1jcndnd2J0ajhm" target="_blank" aria-label="Instagram" id="igLink">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
                             </svg>
                         </a>
-                        <a href="https://www.facebook.com/share/1BV1NqNZXT/" target="_blank" aria-label="Facebook">
+                        <a href="https://www.facebook.com/share/1BV1NqNZXT/" target="_blank" aria-label="Facebook" id="fbLink">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.891h-2.33v6.987C18.343 21.128 22 16.991 22 12z"/>
                             </svg>
@@ -669,43 +252,35 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Kayz Store. All rights reserved</p>
+                <p>&copy; 2026 Kayz Store. All rights reserved · <a href="admin.html" class="admin-link">Admin</a></p>
             </div>
         </div>
     </footer>
 
     <!-- Payment Modal -->
     <div id="paymentModal" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closePaymentModal()">&times;</span>
-
-        <div class="modal-header">
-            <h3 id="productName">Nama Produk</h3>
-            <p>Silakan hubungi kami untuk melanjutkan</p>
+        <div class="modal-content">
+            <span class="modal-close" onclick="closePaymentModal()">&times;</span>
+            <div class="modal-header">
+                <h3 id="productName">Nama Produk</h3>
+                <p id="productPrice">Silakan hubungi kami untuk melanjutkan</p>
+            </div>
+            <a id="waModalBtn" href="https://wa.me/6285126053305" target="_blank" class="whatsapp-btn" style="margin-top:20px;">
+                💬 Hubungi via WhatsApp
+            </a>
         </div>
-
-        <!-- Tombol WhatsApp saja -->
-        <a
-            href="https://wa.me/6285142017734"
-            target="_blank"
-            class="whatsapp-btn"
-            style="margin-top:20px;"
-        >
-            💬 Hubungi via WhatsApp
-        </a>
-    </div> 
-</div>
+    </div>
 
     <!-- Floating Chat Owner Button -->
     <div class="chat-owner-container">
         <div class="chat-options">
-            <a href="https://wa.me/6285142017734" target="_blank" class="chat-option whatsapp">
+            <a href="https://wa.me/6285126053305" target="_blank" class="chat-option whatsapp" id="floatWaBtn">
                 <svg viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
                 WhatsApp
             </a>
-            <a href="https://t.me/UsKayz" target="_blank" class="chat-option telegram">
+            <a href="https://t.me/UsKayz" target="_blank" class="chat-option telegram" id="floatTgBtn">
                 <svg viewBox="0 0 24 24">
                     <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                 </svg>
@@ -720,6 +295,7 @@
         </button>
     </div>
 
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
